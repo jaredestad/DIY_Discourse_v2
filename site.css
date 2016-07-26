@@ -1,0 +1,322 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+*.unselectable {
+    -moz-user-select: -moz-none;
+    -kthml-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+nav * {
+    -moz-user-select: -moz-none;
+    -kthml-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    font-family: Ubuntu;
+    font-family: Chivo;
+}
+
+button {
+    padding: 0;
+    border: 0;
+    margin: 0;
+    border-radius: 0;
+    -webkit-font-smoothing: antialiased;
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    font-family: Ubuntu;
+    font-family: Chivo;
+}
+
+nav {
+    height: 30px;
+}
+
+nav > div, nav > ul {
+    display: inline-block;
+    height: 100%;
+    text-align: center;
+    background-color: white;
+}
+
+
+nav li {
+    list-style-type: none;
+}
+
+nav a {
+    text-decoration: none;
+    color: #5adaff;
+}
+
+nav > ul > li > a {
+    font-size: 24px;
+}
+
+
+nav > ul {
+    float: right;
+}
+
+nav > ul:nth-child(3) > li > a {
+    font-size: 18px;
+}   
+
+nav > ul:last-child {
+    overflow: hidden;
+    width: 150px;
+    height: 90px;
+    position: absolute;
+    top: 32px;
+    right: -154px;
+    clear: right;
+
+    -webkit-transition: .25s ease-in-out;
+    -moz-transition: .25s ease-in-out;
+    -o-transition: .25s ease-in-out;
+    transition: .25s ease-in-out;
+}
+
+
+nav > ul.open {
+    right: 0px;
+}
+
+nav > ul:first-child {
+    width: 20%;
+    margin-left: 40%;
+    vertical-align: top;
+    float: none;
+}
+
+div.hamburger {
+    width: 4%;
+    height: 100%;
+    float: right;
+}
+
+div.hamburger > span {
+    display: block;
+    position: relative;
+    left: 10px;
+    width: 35px;
+    height: 5px;
+    background: #5adaff;
+    border-radius: 5px;
+
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+    -webkit-transition: .25s ease-in-out;
+    -moz-transition: .25s ease-in-out;
+    -o-transition: .25s ease-in-out;
+    transition: .25s ease-in-out;
+}
+
+div.hamburger > span:first-child {
+    top: 4px;
+}
+
+div.hamburger > span:nth-child(2) {
+    top: 7px;
+}
+
+div.hamburger > span:nth-child(3) {
+    top: 2px;
+}
+
+div.hamburger > span:last-child {
+    top: 5px;
+}
+
+div.hamburger.open > span:first-child {
+    top: 10px;
+    width: 0;
+    left: 25px; 
+}
+
+div.hamburger.open > span:last-child {
+    top: -2px;
+    width: 0;
+    left: 25px;
+}
+
+div.hamburger.open > span:nth-child(2) {
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+div.hamburger.open > span:nth-child(3) {
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+
+
+
+.search-area {
+    height: 97%;
+    width: 100%;
+    background-color: blue;
+}
+
+.search-area div * {
+    display: inline;
+}
+
+.button-area button {
+    display: inline-block;
+}
+
+.circle-small {
+    border-radius: 25px;
+    height: 20px;
+    width: 20px;
+    background-color: #5adaff;
+}
+
+.circle-medium {
+    border-radius: 25px;
+    height: 30px;
+    width: 30px;
+    background-color: #5adaff;
+}
+
+.table-area {
+    height: 100%;
+    width: 100%;
+    background-color: red;
+    overflow: scroll;
+}
+
+#comments_table {
+    border: 1px solid black;
+}
+
+table {
+    border-collapse: collapse;
+    background-color: white;
+    width: 100%;
+}
+
+table, th, td {
+    border: 1px solid black;
+}
+
+th, td {
+    text-align: left;
+}
+
+td.id_column, td.author_column{
+    width: 1px;
+    white-space: nowrap;
+}
+
+td p {
+    display: block;
+}
+
+
+th {
+    border-color: white;
+    padding: 0;
+}
+
+thead, tbody {
+}
+
+thead {
+    background-color: black;
+    color: white;
+}
+
+tbody tr:nth-child(even) {
+    background-color: blue;
+}
+
+tbody tr:hover {
+    background-color: red;
+}
+
+/* refer to: https://codepen.io/jgx/pen/wiIGc */
+.fixed_dd {
+    top: 0;
+    position: fixed;
+    width: auto;
+    border: none;
+}
+
+.fixed_thead {
+    top: 0;
+    position: fixed;
+    width: auto;
+}
+
+.dropdown {
+    overflow: hidden;
+}
+
+.dropdown dt, .dropdown dd{
+    float: left;
+}
+
+.dropdown dt {
+    background-color: yellow;
+    width: 10%;
+    cursor: pointer;
+    height: 50px;
+}
+
+.dropdown dt a {
+    text-decoration: none;
+}
+
+.dropdown dd {
+    float: left;
+    width: 0%;
+    transition: .25s ease-in-out;
+    -webkit-transition: .25s ease-in-out;
+    -moz-transition: .25s ease-in-out;
+    -o-transition: .25s ease-in-out;
+}
+
+.dropdown dd.dd_open {
+    width: 90%;
+    right: 0;
+}
+
+.dropdown dd ul {
+    overflow: scroll;
+    background-color: green;
+    white-space: nowrap;
+}
+
+.dropdown dd ul li {
+    display: inline-block;
+    border: 1px solid black;
+}
+
+.dropdown dd ul li label, .dropdown dd ul li label input {
+    cursor: pointer;
+}
+
+
+
