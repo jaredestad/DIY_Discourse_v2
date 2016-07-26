@@ -51,7 +51,8 @@ $(document).ready(function() {
 $(".search-area").html(starterString);
 
 /*Adds a new search field and increases counter by 1*/
-$("#add_field").click(function() {
+$(".search-area").on("click", "#add_field", function() {
+    console.log("ok");
     var next_id_num = counter + 1;
     $("#search-field_" + counter).after("<div id=\"search-field_" + next_id_num + "\">" +
         "<form>" +
@@ -100,7 +101,7 @@ $("#add_field").click(function() {
 
 /*Removes a search field and decrease the counter by 1*/
 /*@exception Number of search fields cannot be 0 or less*/
-$("#remove_field").click(function() {
+$(".search-area").on("click", "#remove_field", function() {
     if(counter != 0) {
         var $field = document.getElementById("search-field_" + counter);
         $field.parentNode.removeChild($field);
@@ -113,8 +114,10 @@ $(".search-area").on("change", ".select-attribute", function() {
     var value = $(this).val();
     var $div = $(this).next("div");
     //console.log(value);
-    var buttons = "<button type=\"button\" class=\"circle-small add_input\">+</button>" +
-    "<button type=\"button\" class=\"circle-small remove_input\">-</button>"; 
+    var buttons = "<div class=\"button-wrap\">" +
+    "<button type=\"button\" class=\"circle-small add_input\">+</button>" +
+    "<button type=\"button\" class=\"circle-small remove_input\">-</button>"
+    "</div>"; 
 
 
 if(value == "keyword" || value == "tag") {
@@ -197,24 +200,25 @@ else if(value == "distinguished") {
 });  
 
 $(".search-area").on("click", ".add_input", function() {
-    var $div = $(this).prev("div");
+    var $div = $(this).closest("div").prev("div");
     if($div.children().length > 0) {
         $div.children().last().after("<input type=\"text\" placeholder=\"Word\" name=\"k" + $div.children().length + "\" />");
     }
 });
 
 $(".search-area").on("click", ".remove_input", function() {
-    var $div = $(this).siblings("div");
+    var $div = $(this).closest("div").siblings("div");
     if($div.children().length > 1) {
         $div.children().last().remove();
     }
 });
 
-$("#reset").click(function() {
+$(".search-area").on("click", "#reset", function() {
     $(".search-area").html(starterString);
+    counter = 0;
 });
 
-$("#search").click(function() {
+$(".search-area").on("click", "#search", function() {
     var array = new Array();
     $("form").each(function() {
         if( $(this).children(".select-attribute").val() != null) {

@@ -31,6 +31,10 @@ html, body {
     font-family: Chivo;
 }
 
+body {
+    overflow-x: hidden;
+}
+
 button {
     padding: 0;
     border: 0;
@@ -44,6 +48,7 @@ button {
 
 nav {
     height: 30px;
+    overflow-x: hidden;
 }
 
 nav > div, nav > ul {
@@ -173,12 +178,32 @@ div.hamburger.open > span:nth-child(3) {
 
 
 .search-area {
+    height: 100%;
+    width: 70%;
+    background-color: blue;
+    margin-left: 15%;
+}
+
+#search-area-wrapper {
     height: 97%;
     width: 100%;
-    background-color: blue;
+    background-color: black;
 }
 
 .search-area div * {
+    display: inline;
+}
+
+.search-area div > form select option{
+    display: block;
+}
+
+
+.search-area div > form > div > div.button-wrap{
+    display: block;
+}
+
+.search-area div > form > div > div.button-wrap button{
     display: inline;
 }
 
