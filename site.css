@@ -182,10 +182,11 @@ div.hamburger.open > span:nth-child(3) {
     width: 70%;
     background-color: blue;
     margin-left: 15%;
+    overflow-y: scroll;
 }
 
 #search-area-wrapper {
-    height: 97%;
+    height: 96%;
     width: 100%;
     background-color: black;
 }
