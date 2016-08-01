@@ -1,0 +1,39 @@
+ html, body {
+ }
+
+ button {
+}
+
+.wrapper {
+    width: 100%;
+    height: 3000px;
+    background-color: blue;
+}
+
+.barea {
+    position: fixed;
+    border: 1px solid yellow;
+    height: 100px;
+    width: 100px;
+}
+
+.barea > div {
+    border: 1px solid black;
+}
+
+button.circle-medium {
+    background-color: #5adaff;
+    border: 1px solid red;
+    -webkit-border-radius: 25px 25px 25px 25px;
+    border-radius: 25px 25px 25px 25px;
+    height: 30px;
+    width: 30px;
+}
+
+button.circle-medium:hover {
+    background-color: red;
+}
+
+button.circle-medium:active {
+    background-color: #5adaff;
+}

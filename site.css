@@ -49,6 +49,7 @@ button {
 nav {
     height: 30px;
     overflow-x: hidden;
+    overflow: hidden;
 }
 
 nav > div, nav > ul {
@@ -85,17 +86,34 @@ nav > ul:last-child {
     overflow: hidden;
     width: 150px;
     height: 90px;
+    width: 0px;
+    height: 0px;
     position: absolute;
     top: 30px;
     right: -154px;
     clear: right;
 
-    -webkit-transition: .25s ease-in-out;
-    -moz-transition: .25s ease-in-out;
-    -o-transition: .25s ease-in-out;
-    transition: .25s ease-in-out;
+    -webkit-transition: right .25s ease-in-out;
+    -moz-transition: right .25s ease-in-out;
+    -o-transition: right .25s ease-in-out;
+    transition: right .25s ease-in-out;
 }
 
+nav > ul.display_show {
+    display: initial;
+}
+
+.hidden {
+    display: none;
+}
+
+.start {
+    right: -145px;
+}
+
+.transition {
+    right: 0px;
+}
 
 nav > ul.open {
     right: 0px;
@@ -112,6 +130,10 @@ div.hamburger {
     width: 4%;
     height: 100%;
     float: right;
+}
+
+div.hamburger:hover {
+    cursor: pointer;
 }
 
 div.hamburger > span {
@@ -175,20 +197,21 @@ div.hamburger.open > span:nth-child(3) {
     transform: rotate(-45deg);
 }
 
-
-
 .search-area {
-    height: 100%;
-    width: 70%;
+    margin-left: 17.5%;
+    min-height: 700px;
+    width: 65%;
     background-color: blue;
-    margin-left: 15%;
-    overflow-y: scroll;
 }
 
 #search-area-wrapper {
-    height: 96%;
+    min-height: 96%;
     width: 100%;
     background-color: black;
+}
+
+#search-area-wrapper > div {
+    display: inline-block;
 }
 
 .search-area div * {
@@ -199,7 +222,6 @@ div.hamburger.open > span:nth-child(3) {
     display: block;
 }
 
-
 .search-area div > form > div > div.button-wrap{
     display: block;
 }
@@ -208,9 +230,18 @@ div.hamburger.open > span:nth-child(3) {
     display: inline;
 }
 
+.button-area {
+    left: 44%;
+    top: 90%;
+    position: fixed;
+    border: 1px solid black;
+    display: block;
+}
+
 .button-area button {
     display: inline-block;
 }
+
 
 .circle-small {
     border-radius: 25px;
@@ -220,12 +251,21 @@ div.hamburger.open > span:nth-child(3) {
 }
 
 .circle-medium {
+    border: 1px solid red;
     border-radius: 25px;
+    -webkit-border-radius: 25px;
+    /*Safari bug cause elements (buttons) within certain fixed containers to affect themselves and each other
+     * causing changes in color (on clicking/hovering). The line -webkit-transform: translateZ(0); fixes this issue.
+     * Additionally, setting the size of the container to be bigger can also be a possible fixed.
+     * The current solution may be inefficient in relation to power supply.
+     * */
+    -webkit-transform: translateZ(0);
     height: 30px;
     width: 30px;
     background-color: #5adaff;
 }
 
+/*
 .table-area {
     height: 100%;
     width: 100%;
@@ -281,8 +321,9 @@ tbody tr:nth-child(even) {
 tbody tr:hover {
     background-color: red;
 }
-
+*/
 /* refer to: https://codepen.io/jgx/pen/wiIGc */
+    /*
 .fixed_dd {
     top: 0;
     position: fixed;
@@ -345,4 +386,4 @@ tbody tr:hover {
 }
 
 
-
+*/

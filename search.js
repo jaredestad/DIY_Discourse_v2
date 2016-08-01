@@ -2,8 +2,15 @@ $(document).ready(function() {
 
     /*Counts number of search fields currently in use*/
     var counter = 0;
-    /*Initializes the first select field*/
-    var starterString = "<div id=\"search-field_" + counter + "\">" +
+    var button_area = "<div class=\"button-area\">" +
+    "<button type=\"button\" class=\"circle-medium\" id=\"add_field\">+</button>" +
+    "<button type=\"button\" class=\"circle-medium\" id=\"remove_field\">-</button>" + 
+    "<button type=\"button\" id=\"reset\">Reset</button>" +
+    "<button type=\"button\" id=\"search\">Search</button>" +
+    "</div>";
+
+/*Initializes the first select field*/
+var starterString = "<div id=\"search-field_" + counter + "\">" +
     "<form>" +
     "<select name=\"attribute\" class=\"select-attribute\">" +
     "<option disabled selected value>--Select an Option--</option>" +
@@ -40,19 +47,13 @@ $(document).ready(function() {
     "<div>" +
     "</div>" +
     "</form>" +
-    "</div>" +
-    "<div class=\"button-area\">" +
-    "<button class=\"circle-medium\" id=\"add_field\">+</button>" +
-    "<button class=\"circle-medium\" id=\"remove_field\">-</button>" + 
-    "<button id=\"reset\">Reset</button>" +
-    "<button id=\"search\">Search</button>" +
     "</div>";
 
 $(".search-area").html(starterString);
 
 /*Adds a new search field and increases counter by 1*/
-$(".search-area").on("click", "#add_field", function() {
-    console.log("ok");
+$(".button-area").on("click", "#add_field", function() {
+    console.log("counter: " + counter);
     var next_id_num = counter + 1;
     $("#search-field_" + counter).after("<div id=\"search-field_" + next_id_num + "\">" +
         "<form>" +
@@ -101,7 +102,7 @@ $(".search-area").on("click", "#add_field", function() {
 
 /*Removes a search field and decrease the counter by 1*/
 /*@exception Number of search fields cannot be 0 or less*/
-$(".search-area").on("click", "#remove_field", function() {
+$(".button-area").on("click", "#remove_field", function() {
     if(counter != 0) {
         var $field = document.getElementById("search-field_" + counter);
         $field.parentNode.removeChild($field);
@@ -213,12 +214,12 @@ $(".search-area").on("click", ".remove_input", function() {
     }
 });
 
-$(".search-area").on("click", "#reset", function() {
+$(".button-area").on("click", "#reset", function() {
     $(".search-area").html(starterString);
     counter = 0;
 });
 
-$(".search-area").on("click", "#search", function() {
+$(".button-area").on("click", "#search", function() {
     var array = new Array();
     $("form").each(function() {
         if( $(this).children(".select-attribute").val() != null) {
@@ -263,24 +264,30 @@ $(window).scroll(function() {
     var offsetTop = $(this).scrollTop();
     var offsetLeft = $(this).scrollLeft();
 
-       if(offsetTop >= ddOffset) {
-       $(".dropdown").addClass("fixed_dd");
-       }
-       else if(offsetTop < ddOffset) {
-       $(".dropdown").removeClass("fixed_dd"); 
-       }
+    if(offsetLeft != 0) {
+        /*quickfix to issue with horizontal trackpad scrolling in Safari*/ 
+        //$(window).scrollLeft(0);
 
-    if(offsetTop > theadOffset) {
-        var newOffset = theadOffset + offsetTop;
-
-        $("thead").css({"position":"fixed", "top":0-offsetTop});
-        /*
-        $("thead").find("th").each(function(index) {
-            $(this).css("min-width", $("tbody").find("td").eq(index).css("min-width") + "px");
-        });*/
     }
-    console.log("-" + offsetLeft);
-    console.log("offsetTop: " + offsetTop +"; theadOffset:" + theadOffset +"; leftoffset: " + offsetLeft);
+
+    if(offsetTop >= ddOffset) {
+        $(".dropdown").addClass("fixed_dd");
+    }
+    else if(offsetTop < ddOffset) {
+        $(".dropdown").removeClass("fixed_dd"); 
+    }
+
+if(offsetTop > theadOffset) {
+    var newOffset = theadOffset + offsetTop;
+
+    $("thead").css({"position":"fixed", "top":0-offsetTop});
+    /*
+       $("thead").find("th").each(function(index) {
+       $(this).css("min-width", $("tbody").find("td").eq(index).css("min-width") + "px");
+       });*/
+}
+console.log("-" + offsetLeft);
+console.log("offsetTop: " + offsetTop +"; theadOffset:" + theadOffset +"; leftoffset: " + offsetLeft);
 
 
 });
@@ -289,7 +296,7 @@ $(window).scroll(function() {
 var $table = $("#comments_table"), $bodyCells = $table.find("tbody tr:first").children(),
     colWidth;
 $(window).resize(function() {
-   
+
     colWidth = $bodyCells.map(function() {
         return $(this).width();
     }).get(); 
@@ -301,10 +308,35 @@ $(window).resize(function() {
     });
 }).resize();
 
+
 $("div.hamburger").click(function(e) { 
+    var $menu = $("ul#links");
     e.preventDefault();
     $(this).toggleClass("open");
-    $("ul#links").toggleClass("open");
+
+    /*This section may seem weird as it technically unnecessary, but there is a bug with Safari
+     * that allows a user to scroll to the right with a trackpad. So even though overflow-x is set to
+     * hidden, a user can potentially scroll right with a trackpad and see the menu that slides from the
+     * right. In order to try to circumvent this behavior the follow code will set the menu's height and
+     * width to 0 when it is not in use. However, a transitionend (checks that css transition is complete)
+     * has been implemented. Currently, if the menu button is clicked rapidly it can cause the menu
+     * to become spontaneously hidden. Uncertain if this will be corrected in the future as it is a
+     * minor issue and I have spent too long looking for fixes.
+     * */
+    if($menu.hasClass("open")) {
+
+        $menu.toggleClass("open");
+
+        function ontransitionend(event) {
+            $menu.css({"width": "0px", "height": "0px"});
+        }
+        $menu.one("transitionend", ontransitionend);
+    }
+    else {
+        $menu.css({"width": "150px", "height": "90px"});
+        $menu.toggleClass("open");
+    }
+
 });
 
 
