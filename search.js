@@ -263,6 +263,19 @@ console.log("offset is " + ddOffset);
 $(window).scroll(function() {
     var offsetTop = $(this).scrollTop();
     var offsetLeft = $(this).scrollLeft();
+    var offsetSA = $("#search-area").offset().top + $("#search-area").height();
+    var offsetBA = $("#button-area").offset().top + $("#button-area").height();
+
+    console.log("SA: " + offsetSA +", BA: " + offsetBA);
+
+    if(offsetBA > offsetSA){
+        $("#button-area").css("visibility", "hidden");
+    }
+    
+    if(offsetBA < offsetSA){
+        $("#button-area").css("visibility", "visible");
+    }
+
 
     if(offsetLeft != 0) {
         /*quickfix to issue with horizontal trackpad scrolling in Safari*/ 
@@ -286,8 +299,8 @@ if(offsetTop > theadOffset) {
        $(this).css("min-width", $("tbody").find("td").eq(index).css("min-width") + "px");
        });*/
 }
-console.log("-" + offsetLeft);
-console.log("offsetTop: " + offsetTop +"; theadOffset:" + theadOffset +"; leftoffset: " + offsetLeft);
+//console.log("-" + offsetLeft);
+//console.log("offsetTop: " + offsetTop +"; theadOffset:" + theadOffset +"; leftoffset: " + offsetLeft);
 
 
 });

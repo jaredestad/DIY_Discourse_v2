@@ -207,7 +207,7 @@ div.hamburger.open > span:nth-child(3) {
 #search-area-wrapper {
     min-height: 96%;
     width: 100%;
-    background-color: black;
+    background-color: #fff;
 }
 
 #search-area-wrapper > div {
@@ -375,7 +375,7 @@ tbody tr:hover {
     background-color: green;
     white-space: nowrap;
 }
-
+*/
 .dropdown dd ul li {
     display: inline-block;
     border: 1px solid black;
@@ -386,4 +386,3 @@ tbody tr:hover {
 }
 
 
-*/
