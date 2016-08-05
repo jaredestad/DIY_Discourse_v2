@@ -46,10 +46,15 @@ button {
     font-family: Chivo;
 }
 
+button:hover {
+    cursor: pointer;
+}
+
 nav {
     height: 30px;
     overflow-x: hidden;
     overflow: hidden;
+    border-bottom: 1px solid #2d95b2;
 }
 
 nav > div, nav > ul {
@@ -199,15 +204,19 @@ div.hamburger.open > span:nth-child(3) {
 
 .search-area {
     margin-left: 17.5%;
-    min-height: 700px;
+    min-height: 650px;
     width: 65%;
-    background-color: blue;
+    border: 1px solid #2d95b2;
+    background-color: #fff;
+    border-radius: 15px;
+    padding: 10px 10px 10px 10px;
 }
 
 #search-area-wrapper {
+    padding: 15px 0;
     min-height: 96%;
     width: 100%;
-    background-color: #fff;
+    background-color: #5adaff;
 }
 
 #search-area-wrapper > div {
@@ -231,10 +240,15 @@ div.hamburger.open > span:nth-child(3) {
 }
 
 .button-area {
+    padding: 5px;
     left: 44%;
     top: 90%;
+    width: 150px;
+    height: 30px;
     position: fixed;
-    border: 1px solid black;
+    border: 1px solid #2d95b2;
+    border-radius: 15px;
+    background-color: #5adaff;
     display: block;
 }
 
@@ -251,7 +265,7 @@ div.hamburger.open > span:nth-child(3) {
 }
 
 .circle-medium {
-    border: 1px solid red;
+    border: 1px solid #2d95b2;
     border-radius: 25px;
     -webkit-border-radius: 25px;
     /*Safari bug cause elements (buttons) within certain fixed containers to affect themselves and each other
@@ -259,10 +273,10 @@ div.hamburger.open > span:nth-child(3) {
      * Additionally, setting the size of the container to be bigger can also be a possible fixed.
      * The current solution may be inefficient in relation to power supply.
      * */
-    -webkit-transform: translateZ(0);
+    /*-webkit-transform: translateZ(0);*/
     height: 30px;
     width: 30px;
-    background-color: #5adaff;
+    background-color: #fff;
 }
 
 /*
