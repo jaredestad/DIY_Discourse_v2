@@ -35,24 +35,28 @@
             <div id="search-area" class="search-area">
             </div>
             <div id="button-area" class="button-area"> 
-                <button type="button" class="circle-medium" id="add_field">+</button> 
-                <button type="button" class="circle-medium" id="remove_field">-</button> 
-                <button type="button" id="reset">Reset</button>
-                <button type="button" id="search">Search</button>
-                </div>
+                <button type="button" class="button-style-2" id="add_field">+</button> 
+                <button type="button" class="button-style-2" id="remove_field">-</button> 
+                <button type="button" class="button-style-2" id="reset">Reset</button>
+                <button type="button" class="button-style-2"id="search">Search</button>
+            </div>
         </div>
 
 
 
         <div class="table-area">
-            <div>
+            <div class="table-header-section">
+                <form>
+                    <label><input type="radio" name="view_type" value="compressed">Compressed</label>
+                    <label><input type="radio" name="view_type" value="regular">Regular</label>
+                </form>
                 <dl id="display_opt" class="dropdown">
                     <dt id="display_options"><a href="javascript: return false;" id="options_selector"><span id="s_options">Display Options</span></a></dt>
 
                     <dd>
                     <ul>
 
-                        <li><label> <input type="checkbox" value="ID" id="comment_id_column" >ID</label></li>
+                        <li><label><input type="checkbox" value="ID" id="comment_id_column">ID</label></li>
                         <li><label><input type="checkbox" value="Author" id="author_column" checked>Author</label></li>
                         <li><label><input type="checkbox" value="Subreddit" id="subreddit_column" checked>Subreddit</label></li>
                         <li><label><input type="checkbox" value="Body" id="body_column" checked>Body</label></li>
