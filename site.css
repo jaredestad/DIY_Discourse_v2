@@ -306,6 +306,16 @@ div.hamburger.open > span:nth-child(3) {
     vertical-align: top;
 }
 
+.view-type-area {
+    margin: 0;
+    height: 100%;
+    background-color: green; 
+}
+
+.dl-area {
+    float: right;
+    margin-right: 5px;
+}
 
 /*
 .table-area {
@@ -381,7 +391,8 @@ tbody tr:hover {
 
  */
 .dropdown {
-    overflow: hidden;
+    height: 100%;
+    margin-left: -5px;
 }
 
 .dropdown dt, .dropdown dd{
@@ -389,10 +400,11 @@ tbody tr:hover {
 }
 
 .dropdown dt {
+    margin: 0;
     background-color: yellow;
-    width: 100px;
+    width: 200px;
     cursor: pointer;
-    height: 50px;
+    height: 100%;
 }
 
 .dropdown dt a {
@@ -415,7 +427,8 @@ tbody tr:hover {
 }
 
 .dropdown dd.dd_open {
-    width: 200px;
+    z-index: 1000;
+    width: 210px;
     height: 300px;
     right: 0;
 }
@@ -434,7 +447,7 @@ tbody tr:hover {
 .dropdown dd ul li label {
     display: inline-block;
     border: 1px solid blue;
-    width: 180px;
+    width: 190px;
 }
 
 .dropdown dd ul li label input {

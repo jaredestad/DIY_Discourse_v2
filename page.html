@@ -46,10 +46,12 @@
 
         <div class="table-area">
             <div class="table-header-section">
-                <form>
+
+                <form class="view-type-area">
                     <label><input type="radio" name="view_type" value="compressed">Compressed</label>
                     <label><input type="radio" name="view_type" value="regular">Regular</label>
                 </form>
+
                 <dl id="display_opt" class="dropdown">
                     <dt id="display_options"><a href="javascript: return false;" id="options_selector"><span id="s_options">Display Options</span></a></dt>
 
@@ -86,6 +88,10 @@
 
                     </dd>
                 </dl>
+
+                <div class="dl-area">
+                    <button type="button" id="download-button">Download</button>
+                </div>
             </div>
             <table id="comments_table" class="table-striped table-bordered">
                 <thead>
