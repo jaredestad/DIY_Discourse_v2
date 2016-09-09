@@ -212,7 +212,7 @@ div.hamburger.open > span:nth-child(3) {
 
 .search-area {
     margin-left: 17.5%;
-    min-height: 650px;
+    min-height: 620px;
     width: 65%;
     border: 1px solid #5adaff;
     background-color: #fff;
@@ -222,7 +222,7 @@ div.hamburger.open > span:nth-child(3) {
 
 #search-area-wrapper {
     padding: 15px 0;
-    min-height: 96%;
+    min-height: 94%;
     width: 100%;
     background-color: #53767f;
 }
@@ -249,14 +249,13 @@ div.hamburger.open > span:nth-child(3) {
 
 .button-area {
     padding: 5px;
-    left: 44%;
-    top: 90%;
-    width: 250px;
+    left: 42%;
+    top: 80%;
+    width: 20%;
     height: 30px;
     position: fixed;
-    border: 1px solid #5adaff;
-    border-radius: 15px;
-    background-color: #53767f;
+    border-bottom: 1px solid #000000;
+    background-color: transparent;
     display: block;
 }
 
@@ -273,19 +272,30 @@ div.hamburger.open > span:nth-child(3) {
 }
 
 .button-style-2 {
-    border: 1px solid #2d95b2;
+    /*border: 1px solid #2d95b2;*/
+    background-color: #ffffff;
     border-radius: 10px;
     /*box-shadow: 10px 10px 5px 0 rgba(0,0,0,0.2), 10px 10px 5px 0 rgba(0,0,0,0.19);*/
-    box-shadow: 10px 10px 5px 0 rgba(0,0,0,0.2);
+    /*box-shadow: 10px 10px 5px 0 rgba(0,0,0,0.2);*/
     /*Safari bug cause elements (buttons) within certain fixed containers to affect themselves and each other
      * causing changes in color (on clicking/hovering). The line -webkit-transform: translateZ(0); fixes this issue.
      * Additionally, setting the size of the container to be bigger can also be a possible fixed.
      * The current solution may be inefficient in relation to power supply.
      * */
-    /*-webkit-transform: translateZ(0);*/
-    height: 30px;
-    width: 40px;
-    background-color: #5adaff;
+/*-webkit-transform: translateZ(0);*/
+margin-right: 5px;
+height: 30px;
+min-width: 15%;
+font-size: 20px;
+font-weight: bold;
+font-family: "Baloo Tamma", cursive;
+}
+
+.button-style-2:hover {
+    background-color: #E8E8E8;
+}
+.button-style-2:active {
+    color: #919191;
 }
 
 /*half way in viewport*/
@@ -301,7 +311,7 @@ div.hamburger.open > span:nth-child(3) {
     background-color: #53767f;
     width: 100%;
     height: 20px;
-    
+
 }
 
 .table-header-section > * {
@@ -392,12 +402,12 @@ div.hamburger.open > span:nth-child(3) {
 
 #scroll-bottom {
     width: 847px;
-    height: 50px;
+    height: 150px;
     position: fixed;
+    display: inline-block;
     background-color: blue;
     bottom: 0;
     left: 220px;
-    opacity: 0.7;
 }
 
 #table-area-wrapper {
@@ -414,3 +424,81 @@ th, td {
     vertical-align: top;
 }
 
+.arrow {
+    position: relative;
+    background-color: #ffffff;
+    border: 1px solid #000;
+}
+
+.arrow:after, .arrow:before {
+    border: solid transparent;
+    top: 8px;
+    left: 25%;
+    content: "";
+    width: 0;
+    height: 0;
+    position: absolute;
+    pointer-events: none;
+}
+
+.arrow:after {
+    border-color: rgba(52, 131, 209, 0);
+    border-top-color: blue;
+    border-width: 40px 200px 0 200px;
+    margin-left: 5px;
+}
+
+.arrow:before {
+    border-color: rgba(10, 12, 13, 0);
+    border-top-color: #000000;
+    border-width: 42px 205px 0 205px;
+}
+
+.arrow2 {
+    position: relative;
+    background-color: #ffffff;
+    border-style inset;
+}
+
+.arrow2:after, .arrow2:before {
+    border: solid transparent;
+    border-color: rgba(0,0,0,0) rgba(0,0,0,0) rgba(0,0,0,0) #fff;
+    left: 31%;
+    content: "";
+    width: 0;
+    height: 0;
+    position: absolute;
+    pointer-events: none;
+}
+
+.arrow2:after {
+    border-color: rgba(0, 0, 0, 0);
+    border-top-color: blue;
+    border-width: 30px 150px 0 150px;
+    margin-left: 5px;
+}
+
+.arrow2:before {
+    border-color: rgba(0, 0, 0, 0);
+    border-top-color: #000000;
+    border-width: 32px 55px 0 55px;
+}
+
+#ar1 {
+    position: relative;
+    background: url("48_down.png") no-repeat;
+    width: 50px;
+    height: 50px;
+    background-color: transparent;
+    margin-left: 13px;
+}
+
+#ar2 {
+    position: relative;
+    background: url("64_down.png") no-repeat;
+    width: 60px;
+    height: 60px;
+    background-color: transparent;
+    margin-top: -40px;
+    margin-left: 5px;
+}
