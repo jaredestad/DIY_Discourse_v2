@@ -179,14 +179,20 @@ if(! $result) {
     die('Could not work: ' . mysql_error());
 }
 
-$num = 0;
+$num = 1;
 $single_row = "";
 $total_rows = "";
 while(($row = mysql_fetch_assoc($result)) != null)
 {
     $link = substr($row["link_id"], 3);
+    //These will be the different table sections
+    //Regular rows encompass the compressed rows
     $single_row = "<tr>" .
-        "<td class=\"author_column\">". 
+        "<td class=\"comment_id_column regular\">" . $row["id"] . "</td>" .
+        "<td class=\"author_column regular\">" . $row["author"] . "</td>" .
+        "<td class=\"subreddit_column regular\">" . $row["subreddit"] . "</td>";
+    
+    $single_row .= "<td class=\"author_column_c compressed\">".
         "<p><label>Author: </label>". $row["author"] ."</p>".
         "<p><label>Subreddit: </label>". $row["subreddit"] ."</p>". 
         "<p><label>Flair: </label>". $row["author_flair_text"] ."</p>".
@@ -195,7 +201,7 @@ while(($row = mysql_fetch_assoc($result)) != null)
         "<p><label>Downs: </label>". $row["downs"] ."</p>".
         "<p><label>Score: </label>". $row["score"] ."</p>".
         "</td>" .
-        "<td class=\"body_column\">" . $row["body"] . "</td>" .
+        "<td class=\"body_column\">" . $row["body"] .
         "<br>" .
         "<a href=\"http://www.reddit.com/comments/" . $link . "/xyzzy/" . $row["id"] . "\">permalink</a>"; 
 
@@ -210,26 +216,36 @@ while(($row = mysql_fetch_assoc($result)) != null)
     }
 
     $single_row .= "<button type=\"button\">Edit</button>" . "</td>";
-    $single_row .= "<td class=\"id_column\">".
+    $single_row .= "<td class=\"id_column_c compressed\">".
         "<label>ID: </label>". $row["id"] ."</p>".
         "<label>Subreddit ID: </label>". $row["subreddit_id"] ."</p>".
         "<label>Parent ID: </label>". $row["parent_id"] ."</p>".
         "<label>Link ID: </label>". $row["link_id"] ."</p>".
         "<label>Name: </label>". $row["name"] ."</p>". 
-        "</td>".
-        "<td class=\"retrieved_on_column\">" . $row["retrieved_on"] . "</td>" .
-        "<td class=\"created_utc_column\">" . $row["created_utc"] . "</td>" .
-        "<td class=\"gilded_column\">" . $row["gilded"] . "</td>" .
-        "<td class=\"controversiality_column\">" . $row["controversiality"] . "</td>" .
-        "<td class=\"edited_column\">" . $row["edited"] . "</td>" . 
-        "<td class=\"archived_column\">" . $row["archived"] . "</td>" .
-        "<td class=\"distinguished_column\">" . $row["distinguished"] . "</td>" .
-        "<td class=\"score_hidden_column\">" . $row["score_hidden"] . "</td>" . 
-        "<td class=\"row_id_column\">" . $num . "</td>" .
-        "<td class=\"wordcount_column\">" . $row["wordcount"] . "</td>" .
-        "<td class=\"lwordcount_column\">" . $row["lwordcount"] . "</td>" .
-        "<td class=\"sentcount_column\">" . $row["sentcount"] . "</td>" .
-        "<td class=\"lix_column\">" . $row["lix"] . "</td>" . 
+        "</td>";
+    
+    $single_row .= "<td class=\"subreddit_id_column regular\">" . $row["subreddit_id"] . "</td>" .
+        "<td class=\"parent_id_column regular\">" . $row["parent_id"] . "</td>" .
+        "<td class=\"link_id_column regular\">" . $row["link_id"] . "</td>" .
+        "<td class=\"name_column regular\">" . $row["name"] . "</td>" .
+        "<td class=\"author_flair_text_column regular\">" . $row["author_flair_text"] . "</td>" .
+        "<td class=\"author_flair_css_class_column regular\">" . $row["author_flair_css_class"] . "</td>" .
+        "<td class=\"retrieved_on_column regular\">" . $row["retrieved_on"] . "</td>" .
+        "<td class=\"created_utc_column regular\">" . $row["created_utc"] . "</td>" .
+        "<td class=\"ups_column regular\">" . $row["ups"] . "</td>" .
+        "<td class=\"downs_column regular\">" . $row["downs"] . "</td>" .
+        "<td class=\"score_column regular\">" . $row["score"] . "</td>" .
+        "<td class=\"gilded_column regular\">" . $row["gilded"] . "</td>" .
+        "<td class=\"controversiality_column regular\">" . $row["controversiality"] . "</td>" .
+        "<td class=\"edited_column regular\">" . $row["edited"] . "</td>" .
+        "<td class=\"archived_column regular\">" . $row["archived"] . "</td>" .
+        "<td class=\"distinguished_column regular\">" . $row["distinguished"] . "</td>" .
+        "<td class=\"score_hidden_column regular\">" . $row["score_hidden"] . "</td>" .
+        "<td class=\"row_id_column regular\">" . $num . "</td>" .
+        "<td class=\"wordcount_column regular\">" . $row["wordcount"] . "</td>" .
+        "<td class=\"lwordcount_column regular\">" . $row["lwordcount"] . "</td>" .
+        "<td class=\"sentcount_column regular\">" . $row["sentcount"] . "</td>" .
+        "<td class=\"lix_column regular\">" . $row["lix"] . "</td>" .
         "</tr>";
 
     $num++;

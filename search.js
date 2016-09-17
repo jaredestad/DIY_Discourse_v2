@@ -237,6 +237,8 @@ $(".button-area").on("click", "#search", function() {
         success: function(results) {
             $("#comments_table tbody").html(results);
             console.log(results);
+    $(".regular").hide();
+    checkSelection();
         },
         complete: function() {
                   },
@@ -271,7 +273,7 @@ $(window).scroll(function() {
     if(offsetBA > offsetSA){
         $("#button-area").css("visibility", "hidden");
     }
-    
+
     if(offsetBA < offsetSA){
         $("#button-area").css("visibility", "visible");
     }
@@ -290,17 +292,17 @@ $(window).scroll(function() {
         $(".dropdown").removeClass("fixed_dd"); 
     }
 
-if(offsetTop > theadOffset) {
-    var newOffset = theadOffset + offsetTop;
+    if(offsetTop > theadOffset) {
+        var newOffset = theadOffset + offsetTop;
 
-    $("thead").css({"position":"fixed", "top":0-offsetTop});
-    /*
-       $("thead").find("th").each(function(index) {
-       $(this).css("min-width", $("tbody").find("td").eq(index).css("min-width") + "px");
-       });*/
-}
-//console.log("-" + offsetLeft);
-//console.log("offsetTop: " + offsetTop +"; theadOffset:" + theadOffset +"; leftoffset: " + offsetLeft);
+        $("thead").css({"position":"fixed", "top":0-offsetTop});
+        /*
+           $("thead").find("th").each(function(index) {
+           $(this).css("min-width", $("tbody").find("td").eq(index).css("min-width") + "px");
+           });*/
+    }
+    //console.log("-" + offsetLeft);
+    //console.log("offsetTop: " + offsetTop +"; theadOffset:" + theadOffset +"; leftoffset: " + offsetLeft);
 
 
 });
@@ -352,5 +354,39 @@ $("div.hamburger").click(function(e) {
 
 });
 
+$(".dropdown input[type='checkbox']").click(function() { 
+    var title = $(this).closest("li").find("input[type='checkbox']").attr("id");
+    title = "." + title;
+    $(title).toggle();
+    console.log(title);
+});
+
+$("input[type='radio']").change(function() {
+   if($(this).val() == "compressed" && $(this).prop("checked", true)){   
+        $(".compressed").show();
+        $(".regular").hide();
+    }
+else{
+        $(".regular").show();
+        checkSelection();
+        $(".compressed").hide();
+}
+});
+
 
 });
+
+/*This function decides which columns will be display from a regular view of the table based on
+ * which columns have been checked in the display options
+ */
+function checkSelection() {
+
+    $(".dropdown input[type='checkbox']").each(function() { 
+        if( $(this).prop("checked")==false){
+            console.log("hiding");
+            var title = $(this).attr("id");
+            title = "." + title;
+            $(title).hide();
+        }
+    });
+}

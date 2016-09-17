@@ -408,6 +408,7 @@ font-family: "Baloo Tamma", cursive;
     background-color: blue;
     bottom: 0;
     left: 220px;
+    display: none;
 }
 
 #table-area-wrapper {
@@ -415,14 +416,6 @@ font-family: "Baloo Tamma", cursive;
     height: 97%;
 }
 
-table {
-    border-collapse: collapse;
-}
-
-th, td {
-    border: 1px solid black;
-    vertical-align: top;
-}
 
 .arrow {
     position: relative;
@@ -501,4 +494,13 @@ th, td {
     background-color: transparent;
     margin-top: -40px;
     margin-left: 5px;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid black;
+    vertical-align: top;
 }

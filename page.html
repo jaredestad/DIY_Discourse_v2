@@ -54,7 +54,7 @@
             <div class="table-header-section">
 
                 <form class="view-type-area">
-                    <label><input type="radio" name="view_type" value="compressed">Compressed</label>
+                    <label><input type="radio" name="view_type" value="compressed" checked>Compressed</label>
                     <label><input type="radio" name="view_type" value="regular">Regular</label>
                 </form>
 
@@ -100,30 +100,42 @@
                 </div>
             </div>
             <div id="table-area-wrapper">
-            <table id="comments_table" class="table-striped table-bordered">
-                <thead>
-                    <th class="author_column">Author</th>
-                    <th class="body_column">Body</th>
-                    <th class="id_column">IDs</th>
-                    <th class="retrieved_on_column">Retrieved On</th>
-                    <th class="created_utc_column">Created UTC</th>
-                    <th class="gilded_column">Gilded</th>
-                    <th class="controversiality_column">Controversiality</th>
-                    <th class="edited_column">Edited</th>
-                    <th class="archived_column">Archived</th>
-                    <th class="distinguished_column">Distinguished</th>
-                    <th class="score_hidden_column">Score Hidden</th>
-                    <th class="row_id_column">Row ID</th>
-                    <th class="wordcount_column">Word Count</th>
-                    <th class="lwordcount_column">Long Word Count</th>
-                    <th class="sentcount_column">Sentence Count</th>
-                    <th class="lix_column">LIX</th>
-                </thead>
-                <tbody>
-                </tbody>
+                <table id="comments_table" class="table-striped table-bordered">
+                    <thead>
+                        <th class="comment_id_column regular">Comment ID</th>
+                        <th class="author_column regular">Author</th>
+                        <th class="subreddit_column regular">Subreddit</th>
+                        <th class="author_column_c compressed">Author</th>
+                        <th class="body_column">Body</th>
+                        <th class="id_column_c compressed">IDs</th>
+                        <th class="subreddit_id_column regular">Subredit ID</th>
+                        <th class="parent_id_column regular">Parent ID</th>
+                        <th class="link_id_column regular">Link ID</th>
+                        <th class="name_column regular">Name</th>
+                        <th class="author_flair_text_column regular">Author Flair Text</th>
+                        <th class="author_flair_css_class_column regular">Author Flair CSS Class</th>
+                        <th class="retrieved_on_column regular">Retrieved On</th>
+                        <th class="created_utc_column regular">Created UTC</th>
+                        <th class="ups_column regular">Ups</th>
+                        <th class="downs_column regular">Downs</th>
+                        <th class="score_column regular">Score</th>
+                        <th class="gilded_column regular">Gilded</th>
+                        <th class="controversiality_column regular">Controversiality</th>
+                        <th class="edited_column regular">Edited</th>
+                        <th class="archived_column regular">Archived</th>
+                        <th class="distinguished_column regular">Distinguished</th>
+                        <th class="score_hidden_column regular">Score Hidden</th>
+                        <th class="row_id_column regular">Row ID</th>
+                        <th class="wordcount_column regular">Word Count</th>
+                        <th class="lwordcount_column regular">Long Word Count</th>
+                        <th class="sentcount_column regular">Sentence Count</th>
+                        <th class="lix_column regular">LIX</th>
+                    </thead>
+                    <tbody>
+                    </tbody>
 
-            </table>
-          </div>
+                </table>
+            </div>
 
         </div>
     </body>
