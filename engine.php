@@ -168,7 +168,7 @@ for($x = 0; $x < count($attributes_array);$x++)
     }
     $query .= $temp;
 }
-$query .= ") LIMIT 100;";
+$query .= ") LIMIT 1000;";
 
 mysql_select_db('reddit');
 mysql_set_charset('utf8mb4', $conn);

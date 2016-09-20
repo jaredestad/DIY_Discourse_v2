@@ -212,7 +212,7 @@ div.hamburger.open > span:nth-child(3) {
 
 .search-area {
     margin-left: 17.5%;
-    min-height: 620px;
+    min-height: 615px;
     width: 65%;
     border: 1px solid #5adaff;
     background-color: #fff;
@@ -221,8 +221,8 @@ div.hamburger.open > span:nth-child(3) {
 }
 
 #search-area-wrapper {
-    padding: 15px 0;
-    min-height: 94%;
+    padding: 15px 0 5px 0;
+    min-height: 93%;
     width: 100%;
     background-color: #53767f;
 }
@@ -300,10 +300,15 @@ font-family: "Baloo Tamma", cursive;
 
 /*half way in viewport*/
 
-.table-area {
+#table-area {
     width: 100%;
     height: 100%;
-    background-color: red;
+    background-color: white;
+}
+
+.stop-scrolling {
+    height: 100%;
+    overflow: hidden;
 }
 
 .table-header-section {
@@ -322,7 +327,11 @@ font-family: "Baloo Tamma", cursive;
 .view-type-area {
     margin: 0;
     height: 100%;
-    background-color: green; 
+    background-color: transparent; 
+}
+
+#display_options {
+    margin-left: 5px;
 }
 
 .dl-area {
@@ -345,14 +354,13 @@ font-family: "Baloo Tamma", cursive;
 
 .dropdown dt {
     margin: 0;
-    background-color: yellow;
+    background-color: transparent;
     width: 150px;
     cursor: pointer;
     height: 100%;
 }
 
 .dropdown dt:hover {
-    background-color: green;
 }
 
 .dropdown dd {
@@ -375,10 +383,11 @@ font-family: "Baloo Tamma", cursive;
 .dropdown dd.dd_open {
     width: 210px;
     height: 300px;
+    border: 3px solid #5adaff;
 }
 
 .dropdown dd ul {
-    background-color: green;
+    background-color: #53767f;
 }
 .dropdown dd ul li {
     display: block;
@@ -391,8 +400,11 @@ font-family: "Baloo Tamma", cursive;
 
 .dropdown dd ul li label {
     display: inline-block;
-    border: 1px solid blue;
-    width: 190px;
+    width: 200px;
+}
+
+.dropdown dd ul li label:hover {
+    background-color: #333;
 }
 
 .dropdown dd ul li label input {
@@ -400,107 +412,257 @@ font-family: "Baloo Tamma", cursive;
     margin-right: 5px;
 }
 
-#scroll-bottom {
-    width: 847px;
-    height: 150px;
-    position: fixed;
-    display: inline-block;
-    background-color: blue;
-    bottom: 0;
-    left: 220px;
-    display: none;
-}
-
 #table-area-wrapper {
     overflow: scroll;
     height: 97%;
 }
 
-
-.arrow {
+#arrow-box {
+    background-color: transparent;
+    height: 100%;
+    width: 30%;
+    margin-left: 35%;
     position: relative;
-    background-color: #ffffff;
-    border: 1px solid #000;
 }
 
-.arrow:after, .arrow:before {
-    border: solid transparent;
-    top: 8px;
-    left: 25%;
+@-webkit-keyframes bounce {
+    0% {bottom: 15px;}
+    25%, 75% {bottom: 20px; }
+    50% {bottom: 25px;}
+    100% {bottom: 10px;}
+}
+
+@-webkit-keyframes bounce2 {
+    0% {top: 15px;}
+    25%, 75% {top: 20px; }
+    50% {top: 25px;}
+    100% {top: 10px;}
+}
+
+.bouncing-effect {
+    -webkit-animation: bounce 1s infinite;
+    -moz-animation: bounce 1s infinite;
+    -o-animation: bounce 1s infinite;
+    animation: bounce 1s infinite;
+}
+
+.bouncing-effecti-2 {
+    -webkit-animation: bounce2 1s infinite;
+    -moz-animation: bounce2 1s infinite;
+    -o-animation: bounce2 1s infinite;
+    animation: bounce2 1s infinite;
+}
+
+#scroll-bottom {
+    width: 20.80%;
+    height: 56px;
+    position: fixed;
+    display: inline-block;
+    background-color: transparent;
+    border-radius: 10px;
+    bottom: -100px;
+    left: 42%;
+    transition: .25s ease-in-out;
+    -webkit-transition: .25s ease-in-out;
+    -moz-transition: .25s ease-in-out;
+    -o-transition: .25s ease-in-out;
+}
+
+
+#scroll-top {
+    width: 20.80%;
+    height: 56px;
+    position: fixed;
+    display: inline-block;
+    background-color: transparent;
+    border-radius: 10px;
+    top: -100px;
+    left: 42%;
+    transition: .25s ease-in-out;
+    -webkit-transition: .25s ease-in-out;
+    -moz-transition: .25s ease-in-out;
+    -o-transition: .25s ease-in-out;
+}
+
+
+
+#loader {
+    width: 70%;
+    margin-left: 40px;
+}
+
+#loader > span{
+font-size: 30px;
+font-weight: bold;
+font-family: "Baloo Tamma", cursive;
+vertical-align: top;
+}
+
+#arrow-box2 {
+    background-color: transparent;
+    height: 100%;
+    width: 30%;
+    margin-left: 35%;
+    position: relative;
+}
+
+#scroll-bottom:hover > #arrow-box > .arrow:before, #scroll-bottom:hover > #arrow-box > .arrow:after, #scroll-bottom:hover > #arrow-box > .arrow-2:before, #scroll-bottom:hover > #arrow-box > .arrow-2:after  {
+}
+
+#scroll-bottom:hover, #scroll-top:hover {
+    background-color: #E8E8E8;
+    cursor: pointer;
+}
+.arrow {
+   position: relative;
+   color: #333;
+   left: 17px;
+}
+
+.arrow:before, .arrow:after {
     content: "";
-    width: 0;
-    height: 0;
-    position: absolute;
-    pointer-events: none;
-}
-
-.arrow:after {
-    border-color: rgba(52, 131, 209, 0);
-    border-top-color: blue;
-    border-width: 40px 200px 0 200px;
-    margin-left: 5px;
+    background: #000;
+    border-radius: 0.2em;
+    border-radius: 3px;
+    display: block;
+    height: 10px;
+    position: relative;
+    width: 30px;
 }
 
 .arrow:before {
-    border-color: rgba(10, 12, 13, 0);
-    border-top-color: #000000;
-    border-width: 42px 205px 0 205px;
+    top: 10px;
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
 }
 
-.arrow2 {
-    position: relative;
-    background-color: #ffffff;
-    border-style inset;
+.arrow:after {
+    left: 15px;
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
 }
 
-.arrow2:after, .arrow2:before {
-    border: solid transparent;
-    border-color: rgba(0,0,0,0) rgba(0,0,0,0) rgba(0,0,0,0) #fff;
-    left: 31%;
+.arrow-2 {
+   position: relative;
+   color: #333;
+}
+
+.arrow-2:before, .arrow-2:after {
     content: "";
-    width: 0;
-    height: 0;
-    position: absolute;
-    pointer-events: none;
-}
-
-.arrow2:after {
-    border-color: rgba(0, 0, 0, 0);
-    border-top-color: blue;
-    border-width: 30px 150px 0 150px;
-    margin-left: 5px;
-}
-
-.arrow2:before {
-    border-color: rgba(0, 0, 0, 0);
-    border-top-color: #000000;
-    border-width: 32px 55px 0 55px;
-}
-
-#ar1 {
+    background: #000;
+    border-radius: 0.2em;
+    border-radius: 3px;
+    display: block;
+    height: 10px;
     position: relative;
-    background: url("48_down.png") no-repeat;
     width: 50px;
-    height: 50px;
-    background-color: transparent;
-    margin-left: 13px;
 }
 
-#ar2 {
+.arrow-2:before {
+    top: 10px;
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+}
+
+.arrow-2:after {
+    left: 30px;
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+}
+
+.arrow-3 {
+   position: relative;
+   color: #333;
+   left: 17px;
+}
+
+.arrow-3:before, .arrow-3:after {
+    content: "";
+    background: #000;
+    border-radius: 0.2em;
+    border-radius: 3px;
+    display: block;
+    height: 10px;
     position: relative;
-    background: url("64_down.png") no-repeat;
-    width: 60px;
-    height: 60px;
-    background-color: transparent;
-    margin-top: -40px;
-    margin-left: 5px;
+    width: 30px;
+}
+
+.arrow-3:before {
+    top: 35px;
+    left: 16px;
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+}
+
+.arrow-3:after {
+    top: 25px;
+    left: 1px;
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+}
+
+.arrow-4 {
+   position: relative;
+   color: #333;
+}
+
+.arrow-4:before, .arrow-4:after {
+    content: "";
+    background: #000;
+    border-radius: 0.2em;
+    border-radius: 3px;
+    display: block;
+    height: 10px;
+    position: relative;
+    width: 50px;
+}
+
+.arrow-4:before {
+    top: -3px;
+    left: 30px;
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+}
+
+.arrow-4:after {
+    top: -13px;
+    left: 0;
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
 }
 
 table {
     border-collapse: collapse;
+    table-layout: fixed;
+    width: 100%;
+    height: 100px;
+}
+
+tbody, thead {
+    position: relative;
+    height: 50px;
 }
 
 th, td {
     border: 1px solid black;
+    width: 200px;
     vertical-align: top;
+    height: 500px;
 }
+
+tr {
+    height: 50px;
+}
+
+th.body_column, td.body_column {
+    width: 875px;
+}
+
+thead {
+    height: 100%;
+}
+
+th {
+    white-space: nowrap;
+}
+

@@ -1,5 +1,7 @@
 $(document).ready(function() {
 
+    $("#table-area").hide();
+    $("#display_opt").hide();
     /*Counts number of search fields currently in use*/
     var counter = 0;
     var button_area = "<div class=\"button-area\">" +
@@ -7,7 +9,7 @@ $(document).ready(function() {
     "<button type=\"button\" class=\"circle-medium\" id=\"remove_field\">-</button>" + 
     "<button type=\"button\" id=\"reset\">Reset</button>" +
     "<button type=\"button\" id=\"search\">Search</button>" +
-    "</div>";
+    "</div>";   
 
 /*Initializes the first select field*/
 var starterString = "<div id=\"search-field_" + counter + "\">" +
@@ -214,12 +216,13 @@ $(".search-area").on("click", ".remove_input", function() {
     }
 });
 
-$(".button-area").on("click", "#reset", function() {
+$("#reset").click(function() {
     $(".search-area").html(starterString);
     counter = 0;
 });
 
-$(".button-area").on("click", "#search", function() {
+$("#search").click(function() {
+
     var array = new Array();
     $("form").each(function() {
         if( $(this).children(".select-attribute").val() != null) {
@@ -228,24 +231,40 @@ $(".button-area").on("click", "#search", function() {
         }
     });
 
-    $.ajax({
-        type: "POST",
-        url: "./engine.php",
-        dataType: "text",
-        data: { "array": array},
+    $("#arrow-box").hide();
+    $("#loader").show();
+    $("#scroll-bottom").css("bottom", "10px");
 
-        success: function(results) {
-            $("#comments_table tbody").html(results);
-            console.log(results);
-    $(".regular").hide();
-    checkSelection();
-        },
-        complete: function() {
-                  },
-        error: function() {
-               }
-    });
+    //This Timeout function is necessary otherwise the #scroll-bottom animation/transition is not smooth
+    setTimeout( function() { 
+        $.ajax({
+            type: "POST",
+            url: "./engine.php",
+            dataType: "text",
+            data: { "array": array},
 
+            success: function(results) {
+                $("#comments_table tbody").html(results);
+                console.log(results);
+
+                if( $("#r1").prop("checked")==true ){
+                    $(".regular").hide();
+                }
+                else {
+                    $(".compressed").hide();
+                }
+                checkSelection();
+                $("#loader").hide();
+                $("#arrow-box").show();
+                $("#scroll-bottom").addClass("bouncing-effect");
+
+            },
+            complete: function() {
+                      },
+            error: function() {
+                   }
+        });
+    }, 400);
     console.log(array);
 });
 
@@ -277,32 +296,6 @@ $(window).scroll(function() {
     if(offsetBA < offsetSA){
         $("#button-area").css("visibility", "visible");
     }
-
-
-    if(offsetLeft != 0) {
-        /*quickfix to issue with horizontal trackpad scrolling in Safari*/ 
-        //$(window).scrollLeft(0);
-
-    }
-
-    if(offsetTop >= ddOffset) {
-        $(".dropdown").addClass("fixed_dd");
-    }
-    else if(offsetTop < ddOffset) {
-        $(".dropdown").removeClass("fixed_dd"); 
-    }
-
-    if(offsetTop > theadOffset) {
-        var newOffset = theadOffset + offsetTop;
-
-        $("thead").css({"position":"fixed", "top":0-offsetTop});
-        /*
-           $("thead").find("th").each(function(index) {
-           $(this).css("min-width", $("tbody").find("td").eq(index).css("min-width") + "px");
-           });*/
-    }
-    //console.log("-" + offsetLeft);
-    //console.log("offsetTop: " + offsetTop +"; theadOffset:" + theadOffset +"; leftoffset: " + offsetLeft);
 
 
 });
@@ -362,17 +355,44 @@ $(".dropdown input[type='checkbox']").click(function() {
 });
 
 $("input[type='radio']").change(function() {
-   if($(this).val() == "compressed" && $(this).prop("checked", true)){   
+    if($(this).val() == "compressed" && $(this).prop("checked", true)){   
         $(".compressed").show();
         $(".regular").hide();
+        $("#display_opt").hide();
     }
-else{
+    else{
         $(".regular").show();
         checkSelection();
+        $("#display_opt").show();
         $(".compressed").hide();
-}
+    }
 });
 
+
+$("#scroll-bottom").click(function() {
+    $("#table-area").show();
+    $("html, body").animate({ scrollTop: $(document).height()-$(window).height() }, 600);   
+    $(this).removeClass("bouncing-effect");
+    $(this).css("bottom", "-100px");
+    $("body").addClass("stop-scrolling");
+    $("#scroll-top").css("top", "10px");
+});
+
+$("#scroll-top").click(function() {
+    $("body").removeClass("stop-scrolling");
+    $("html, body").animate({ scrollTop: 0 }, 600);
+    $(this).css("top", "-100px");
+    $("#scroll-bottom").css("bottom", "10px");
+    setTimeout( function() {$("#table-area").hide()}, 400);
+});
+
+$(document).bind("click", function(e) {
+    var $clicked = $(e.target);
+    if(! $clicked.parents().hasClass("dropdown"))
+    $(".dropdown dd").removeClass("dd_open");
+
+
+}); 
 
 });
 
