@@ -14,7 +14,7 @@ $id = mysql_real_escape_string($_POST["id"]);
 $tag = mysql_real_escape_string($_POST["tag"]);
 
 
-$query = "UPDATE cinfo SET tags = REPLACE(tags, ';" . $tag . ";', '') WHERE id = '" . $id . "';";
+$query = "UPDATE cinfo SET tags = REPLACE(tags, '" . $tag . ";', '') WHERE id = '" . $id . "';";
 
 mysql_select_db('reddit');
 mysql_set_charset('utf8mb4', $conn);

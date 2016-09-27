@@ -9,6 +9,7 @@
         <link href="https://fonts.googleapis.com/css?family=Baloo+Tamma" rel="stylesheet">
         <link href="./site.css" rel="stylesheet" /> 
         <script src="./search.js" type="text/javascript"></script>
+        <script src="./shared.js" type="text/javascript"></script>
     </head>
 
     <body>
@@ -27,9 +28,11 @@
             <li><a href="#">Login/Register</a></li>
         </ul>
         <ul id="links">
+            <li><a href="./about.html">About</a></li>
+            <!--
             <li><a href="#">something</a></li>
             <li><a href="#">something</a></li>
-            <li><a href="#">something</a></li>
+            -->
         </ul>
         </nav>
 
@@ -110,12 +113,12 @@
                     </dd>
                 </dl>
                 <div class="dl-area">
-                    <span>Comments Loaded:</span>
+                    <span>Comments Loaded: </span><span id="comment_count"></span>
                     <button type="button" id="download-button">Download</button>
                 </div>
             </div>
             <div id="table-area-wrapper">
-                <table id="comments_table" class="table-striped table-bordered">
+                <table id="comments_table" >
                     <thead>
                         <th class="comment_id_column regular">Comment ID</th>
                         <th class="author_column regular">Author</th>

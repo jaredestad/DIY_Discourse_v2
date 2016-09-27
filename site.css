@@ -303,7 +303,7 @@ font-family: "Baloo Tamma", cursive;
 #table-area {
     width: 100%;
     height: 100%;
-    background-color: white;
+    background-color: blue;
 }
 
 .stop-scrolling {
@@ -328,6 +328,10 @@ font-family: "Baloo Tamma", cursive;
     margin: 0;
     height: 100%;
     background-color: transparent; 
+}
+
+.view-type-area > label, .view-type-area > label > input {
+    cursor: pointer;
 }
 
 #display_options {
@@ -414,6 +418,8 @@ font-family: "Baloo Tamma", cursive;
 
 #table-area-wrapper {
     overflow: scroll;
+    background-color: black;
+    width: 100%;
     height: 97%;
 }
 
@@ -635,7 +641,8 @@ table {
     border-collapse: collapse;
     table-layout: fixed;
     width: 100%;
-    height: 100px;
+    overflow: scroll;
+    background-color: green;
 }
 
 tbody, thead {
@@ -647,7 +654,7 @@ th, td {
     border: 1px solid black;
     width: 200px;
     vertical-align: top;
-    height: 500px;
+    height: 400px;
 }
 
 tr {
@@ -663,6 +670,31 @@ thead {
 }
 
 th {
-    white-space: nowrap;
+   /* white-space: nowrap;*/
 }
 
+
+#comments_table > tbody > tr > td:nth-child(5) > p {
+    color: #B900FF;
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 10px;
+}
+
+#comments_table > tbody > tr > td:nth-child(5) > p > span{
+    color: #000000;
+    border-radius: 5px; 
+    display: inline-block;
+    padding: 0 4px;
+    width: 14px;
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+#comments_table > tbody > tr > td:nth-child(5) > p > span:hover {
+    background-color: #E8E8E8; 
+}
+
+#comments_table > tbody > tr > td > button, #comments_table > tbody > tr > div, #comments_table > tbody > tr > td > a {
+    display: block;
+}

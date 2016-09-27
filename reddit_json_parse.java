@@ -14,7 +14,7 @@ import java.util.ArrayList;
 
 public class reddit_json_parse
 {
-    public static int last_count = 0;//32413291
+    public static int last_count = 32413291;//32413291
     //if we ran this program before and it errored before completion this number will help count lines up to where the error occurred
 
     public static void main(String[] args) throws IOException
@@ -43,6 +43,7 @@ public class reddit_json_parse
     {
         int r;
         int count = 0;
+        int prev_count = 0;
         while((r = reader.read()) != -1)
         {
             char ch = (char) r;
@@ -67,9 +68,19 @@ public class reddit_json_parse
                     
                     int[] numbers = {wordcount, longwordcount, sentencecount, lix};
                     
-                    //mysql_handler(array, numbers);
+                    mysql_handler(array, numbers);
                 }
                 
+                if(count == 1000000)
+                {
+                    prev_count = count;
+                }
+                
+                if(count == prev_count+1000000)
+                {
+                    System.out.println(count);
+                    prev_count = count;
+                }
                 
             }
         }

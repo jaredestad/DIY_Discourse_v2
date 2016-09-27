@@ -254,9 +254,13 @@ $("#search").click(function() {
                     $(".compressed").hide();
                 }
                 checkSelection();
+                //need .adder to hide here when info loads
+                $(".adder").hide();
+                $(".remove_tag").hide();
                 $("#loader").hide();
                 $("#arrow-box").show();
                 $("#scroll-bottom").addClass("bouncing-effect");
+                $("#comment_count").text($("#comments_table > tbody > tr").last().find(".row_id_column").text());
 
             },
             complete: function() {
@@ -317,36 +321,6 @@ $(window).resize(function() {
 }).resize();
 
 
-$("div.hamburger").click(function(e) { 
-    var $menu = $("ul#links");
-    e.preventDefault();
-    $(this).toggleClass("open");
-
-    /*This section may seem weird as it technically unnecessary, but there is a bug with Safari
-     * that allows a user to scroll to the right with a trackpad. So even though overflow-x is set to
-     * hidden, a user can potentially scroll right with a trackpad and see the menu that slides from the
-     * right. In order to try to circumvent this behavior the follow code will set the menu's height and
-     * width to 0 when it is not in use. However, a transitionend (checks that css transition is complete)
-     * has been implemented. Currently, if the menu button is clicked rapidly it can cause the menu
-     * to become spontaneously hidden. Uncertain if this will be corrected in the future as it is a
-     * minor issue and I have spent too long looking for fixes.
-     * */
-    if($menu.hasClass("open")) {
-
-        $menu.toggleClass("open");
-
-        function ontransitionend(event) {
-            $menu.css({"width": "0px", "height": "0px"});
-        }
-        $menu.one("transitionend", ontransitionend);
-    }
-    else {
-        $menu.css({"width": "150px", "height": "90px"});
-        $menu.toggleClass("open");
-    }
-
-});
-
 $(".dropdown input[type='checkbox']").click(function() { 
     var title = $(this).closest("li").find("input[type='checkbox']").attr("id");
     title = "." + title;
@@ -393,6 +367,66 @@ $(document).bind("click", function(e) {
 
 
 }); 
+
+$("tbody").on("click", ".edit_tag", function () {
+       $(".edit_tag").hide();
+        $(this).next(".adder").show();
+        $(this).parent().find("p > span.remove_tag").show();
+        //$(".edit_tag").attr("disabled", true);
+});
+
+$("tbody").on("click", ".done_tag", function() {
+        $(".edit_tag").show();
+        $(".remove_tag").hide();
+        $(this).parent().hide();
+});
+
+$("tbody").on("click", ".add_tag", function() {
+        var $this = $(this);
+        var $tag = $(this).next("input").val(); 
+        $(this).next("input").val("");
+        var $id = $(this).next("input").attr("id");
+        var $html = "<p>" + $tag + "<span class='remove_tag'>&#10006</span></p>";
+        $.ajax({
+            type: "POST",
+            url: "./add_tag.php",
+            dataType: "text",
+            data: { "id": $id, "tag": $tag},
+
+            success: function(results) {
+                //should have wait/loading function
+                $this.parent().prev("button").before($html);
+            },
+            complete: function() {
+                      },
+            error: function() {
+                       alert(results);
+                   }
+        });
+});
+
+$("tbody").on("click", "p > span", function() {
+    var $this = $(this);
+    var $id = $(this).parent().nextAll("div").eq(0).find("input").attr("id");
+    var $tag = $(this).parent().contents().filter(function() {
+      return this.nodeType == 3;   
+    }).text(); 
+        $.ajax({
+            type: "POST",
+            url: "./remove_tag.php",
+            dataType: "text",
+            data: { "id": $id, "tag": $tag},
+
+            success: function(results) {
+                $this.parent().remove();
+            },
+            complete: function() {
+                      },
+            error: function() {
+                       alert(results);
+                   }
+        });
+    });
 
 });
 

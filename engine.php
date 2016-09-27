@@ -210,12 +210,12 @@ while(($row = mysql_fetch_assoc($result)) != null)
     {
         if($tags[$z] != "")
         {
-            $single_row .= "<p>#" . $tags[$z] . "</p>";
+            $single_row .= "<p>" . $tags[$z] . "<span class=\"remove_tag\">&#10006</span></p>";
         }
 
     }
 
-    $single_row .= "<button type=\"button\">Edit</button>" . "</td>";
+    $single_row .= "<button type=\"button\" class=\"edit_tag\">Edit</button>" . "<div class=\"adder\"><button type=\"button\" class=\"add_tag\">Add</button>" . "<input type=\"text\" id=\"" . $row["id"] . "\"><button type=\"button\" class=\"done_tag\">Done</button></div>" . "</td>";
     $single_row .= "<td class=\"id_column_c compressed\">".
         "<label>ID: </label>". $row["id"] ."</p>".
         "<label>Subreddit ID: </label>". $row["subreddit_id"] ."</p>".
