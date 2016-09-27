@@ -3,10 +3,10 @@ Version 2 of the DIY Discourse project
 
 ##To Do
 - [x] Implement improved search properties
-- [ ] Recreate display options
-- [ ] Implement compressed and regular views
+- [x] Recreate display options
+- [x] Implement compressed and regular views
 - [ ] Re-style
-- [ ] Improve tag system
+- [x] Improve tag system
 - [ ] Allow XML/CSV downloads
 - [ ] Create user accounts
 - [ ] Develop account limitations
