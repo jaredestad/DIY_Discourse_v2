@@ -50,20 +50,20 @@
 
         <div id="scroll-top">
             <div id="arrow-box2">
-            <div class="arrow-3"></div>
-            <div class="arrow-4"></div>
+                <div class="arrow-3"></div>
+                <div class="arrow-4"></div>
             </div>
         </div>
 
         <div id="scroll-bottom">
             <div id="loader">
-            <i class="fa fa-cog fa-spin fa-3x fa-fw" aria-hidden="true"></i>
-            <span>Loading</span>
-        </div>
+                <i class="fa fa-cog fa-spin fa-3x fa-fw" aria-hidden="true"></i>
+                <span>Loading</span>
+            </div>
             <div id="arrow-box">
-            <div class="arrow"></div>
-            <div class="arrow-2"></div>
-        </div>
+                <div class="arrow"></div>
+                <div class="arrow-2"></div>
+            </div>
         </div>
 
 
@@ -114,41 +114,48 @@
                 </dl>
                 <div class="dl-area">
                     <span>Comments Loaded: </span><span id="comment_count"></span>
-                    <button type="button" id="download-button">Download</button>
+                    <!--<button type="button" id="download-button">Download</button>-->
                 </div>
+            </div>
+
+            <div id="header-area-wrapper">
+                <table id="table_header" >
+                    <thead>
+                        <tr>
+                            <th style="height: 10px;" class="comment_id_column regular">Comment ID</th>
+                            <th class="author_column regular">Author</th>
+                            <th class="subreddit_column regular">Subreddit</th>
+                            <th class="author_column_c compressed">Author Information</th>
+                            <th class="body_column">Body</th>
+                            <th class="id_column_c compressed">IDs</th>
+                            <th class="subreddit_id_column regular">Subredit ID</th>
+                            <th class="parent_id_column regular">Parent ID</th>
+                            <th class="link_id_column regular">Link ID</th>
+                            <th class="name_column regular">Name</th>
+                            <th class="author_flair_text_column regular">Author Flair Text</th>
+                            <th class="author_flair_css_class_column regular">Author Flair CSS Class</th>
+                            <th class="retrieved_on_column regular">Retrieved On</th>
+                            <th class="created_utc_column regular">Created UTC</th>
+                            <th class="ups_column regular">Ups</th>
+                            <th class="downs_column regular">Downs</th>
+                            <th class="score_column regular">Score</th>
+                            <th class="gilded_column regular">Gilded</th>
+                            <th class="controversiality_column regular">Controversiality</th>
+                            <th class="edited_column regular">Edited</th>
+                            <th class="archived_column regular">Archived</th>
+                            <th class="distinguished_column regular">Distinguished</th>
+                            <th class="score_hidden_column regular">Score Hidden</th>
+                            <th class="row_id_column regular">Row ID</th>
+                            <th class="wordcount_column regular">Word Count</th>
+                            <th class="lwordcount_column regular">Long Word Count</th>
+                            <th class="sentcount_column regular">Sentence Count</th>
+                            <th class="lix_column regular">LIX</th>
+                        </tr>
+                    </thead>
+                </table>
             </div>
             <div id="table-area-wrapper">
                 <table id="comments_table" >
-                    <thead>
-                        <th class="comment_id_column regular">Comment ID</th>
-                        <th class="author_column regular">Author</th>
-                        <th class="subreddit_column regular">Subreddit</th>
-                        <th class="author_column_c compressed">Author Information</th>
-                        <th class="body_column">Body</th>
-                        <th class="id_column_c compressed">IDs</th>
-                        <th class="subreddit_id_column regular">Subredit ID</th>
-                        <th class="parent_id_column regular">Parent ID</th>
-                        <th class="link_id_column regular">Link ID</th>
-                        <th class="name_column regular">Name</th>
-                        <th class="author_flair_text_column regular">Author Flair Text</th>
-                        <th class="author_flair_css_class_column regular">Author Flair CSS Class</th>
-                        <th class="retrieved_on_column regular">Retrieved On</th>
-                        <th class="created_utc_column regular">Created UTC</th>
-                        <th class="ups_column regular">Ups</th>
-                        <th class="downs_column regular">Downs</th>
-                        <th class="score_column regular">Score</th>
-                        <th class="gilded_column regular">Gilded</th>
-                        <th class="controversiality_column regular">Controversiality</th>
-                        <th class="edited_column regular">Edited</th>
-                        <th class="archived_column regular">Archived</th>
-                        <th class="distinguished_column regular">Distinguished</th>
-                        <th class="score_hidden_column regular">Score Hidden</th>
-                        <th class="row_id_column regular">Row ID</th>
-                        <th class="wordcount_column regular">Word Count</th>
-                        <th class="lwordcount_column regular">Long Word Count</th>
-                        <th class="sentcount_column regular">Sentence Count</th>
-                        <th class="lix_column regular">LIX</th>
-                    </thead>
                     <tbody>
                     </tbody>
 

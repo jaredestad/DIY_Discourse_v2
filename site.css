@@ -231,12 +231,60 @@ div.hamburger.open > span:nth-child(3) {
     display: inline-block;
 }
 
+select {
+    height: 25px;
+    width: 100px;
+    padding: 0 5px;
+    border: 1px solid #ccc;
+    background: url("./arrow_black.png") no-repeat 95% 50%; 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    font-family: Chivo;
+}
+
+.search-area div:first-child > form > select {
+    width: 170px;
+}
+
+.search-area div > form > select:nth-child(2) {
+    width: 170px;
+}
+
+select:focus {
+    outline: none;
+}
+
+input[type="text"] {
+    height: 25px;
+    padding: 0 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+input:focus {
+    outline: none;
+    border-color: #333333;
+}
+
 .search-area div * {
     display: inline;
 }
 
+.search-area div {
+    margin-bottom: 5px;
+}
+
 .search-area div > form select option{
     display: block;
+}
+
+.search-area div > form > div > p {
+    font-family: Chivo;
+    font-size: 12px;
 }
 
 .search-area div > form > div > div.button-wrap{
@@ -298,50 +346,12 @@ font-family: "Baloo Tamma", cursive;
     color: #919191;
 }
 
-/*half way in viewport*/
-
-#table-area {
-    width: 100%;
-    height: 100%;
-    background-color: blue;
-}
 
 .stop-scrolling {
     height: 100%;
     overflow: hidden;
 }
 
-.table-header-section {
-    border: 1px solid black;
-    background-color: #53767f;
-    width: 100%;
-    height: 20px;
-
-}
-
-.table-header-section > * {
-    display: inline-block;
-    vertical-align: top;
-}
-
-.view-type-area {
-    margin: 0;
-    height: 100%;
-    background-color: transparent; 
-}
-
-.view-type-area > label, .view-type-area > label > input {
-    cursor: pointer;
-}
-
-#display_options {
-    margin-left: 5px;
-}
-
-.dl-area {
-    float: right;
-    margin-right: 5px;
-}
 
 .clear {
     clear: both;
@@ -369,6 +379,7 @@ font-family: "Baloo Tamma", cursive;
 
 .dropdown dd {
     position: relative;
+    z-index: 500;
     float: left;
     overflow-y: scroll;
     overflow-x: hidden;
@@ -414,13 +425,6 @@ font-family: "Baloo Tamma", cursive;
 .dropdown dd ul li label input {
     margin-left: 5px;
     margin-right: 5px;
-}
-
-#table-area-wrapper {
-    overflow: scroll;
-    background-color: black;
-    width: 100%;
-    height: 97%;
 }
 
 #arrow-box {
@@ -479,6 +483,7 @@ font-family: "Baloo Tamma", cursive;
     width: 20.80%;
     height: 56px;
     position: fixed;
+    z-index: 500;
     display: inline-block;
     background-color: transparent;
     border-radius: 10px;
@@ -498,10 +503,10 @@ font-family: "Baloo Tamma", cursive;
 }
 
 #loader > span{
-font-size: 30px;
-font-weight: bold;
-font-family: "Baloo Tamma", cursive;
-vertical-align: top;
+    font-size: 30px;
+    font-weight: bold;
+    font-family: "Baloo Tamma", cursive;
+    vertical-align: top;
 }
 
 #arrow-box2 {
@@ -520,9 +525,9 @@ vertical-align: top;
     cursor: pointer;
 }
 .arrow {
-   position: relative;
-   color: #333;
-   left: 17px;
+    position: relative;
+    color: #333;
+    left: 17px;
 }
 
 .arrow:before, .arrow:after {
@@ -549,8 +554,8 @@ vertical-align: top;
 }
 
 .arrow-2 {
-   position: relative;
-   color: #333;
+    position: relative;
+    color: #333;
 }
 
 .arrow-2:before, .arrow-2:after {
@@ -577,9 +582,9 @@ vertical-align: top;
 }
 
 .arrow-3 {
-   position: relative;
-   color: #333;
-   left: 17px;
+    position: relative;
+    color: #333;
+    left: 17px;
 }
 
 .arrow-3:before, .arrow-3:after {
@@ -608,8 +613,8 @@ vertical-align: top;
 }
 
 .arrow-4 {
-   position: relative;
-   color: #333;
+    position: relative;
+    color: #333;
 }
 
 .arrow-4:before, .arrow-4:after {
@@ -637,45 +642,93 @@ vertical-align: top;
     -webkit-transform: rotate(-45deg);
 }
 
+
+#table-area {
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+}
+
+.table-header-section {
+    border: 1px solid black;
+    background-color: #53767f;
+    width: 100%;
+    height: 20px;
+}
+
+.table-header-section > * {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.view-type-area {
+    margin: 0;
+    height: 100%;
+    background-color: transparent; 
+}
+
+.view-type-area > label, .view-type-area > label > input {
+    cursor: pointer;
+}
+
+#display_options {
+    margin-left: 5px;
+}
+
+.dl-area {
+    float: right;
+    margin-right: 5px;
+}
+
+#header-area-wrapper {
+    height: 21px;
+    width: 100%;
+}
+
+#table-area-wrapper {
+    overflow: scroll;
+    width: auto;
+    height: 93.7%;
+}
+
 table {
     border-collapse: collapse;
     table-layout: fixed;
     width: 100%;
-    overflow: scroll;
-    background-color: green;
+    height: 100%;
+    overflow: hidden;
 }
 
-tbody, thead {
+thead, tbody {
     position: relative;
-    height: 50px;
+    z-index: -20;
 }
 
 th, td {
     border: 1px solid black;
     width: 200px;
     vertical-align: top;
-    height: 400px;
 }
 
-tr {
-    height: 50px;
+th {
+    height: 20px;
+}
+
+td {
+    height: 200px;
+}
+
+thead > tr {
+    vertical-align: top;
+    padding: 0;
 }
 
 th.body_column, td.body_column {
     width: 875px;
 }
 
-thead {
-    height: 100%;
-}
-
-th {
-   /* white-space: nowrap;*/
-}
-
-
 #comments_table > tbody > tr > td:nth-child(5) > p {
-    color: #B900FF;
+    color: #AB59B2;
     display: inline-block;
     vertical-align: top;
     margin-right: 10px;
@@ -685,8 +738,8 @@ th {
     color: #000000;
     border-radius: 5px; 
     display: inline-block;
-    padding: 0 4px;
-    width: 14px;
+    padding: 0 0 0 4px;
+    width: 16px;
     margin-left: 5px;
     cursor: pointer;
 }
@@ -697,4 +750,20 @@ th {
 
 #comments_table > tbody > tr > td > button, #comments_table > tbody > tr > div, #comments_table > tbody > tr > td > a {
     display: block;
+}
+
+#comments_table > tbody > tr > td > button, #comments_table > tbody > tr > td > div > button {
+    vertical-align: top;
+    width: 100px;
+    height: 28px;
+    font-size: 14px;
+    font-family: Chivo;
+    color: #fff;
+    background-color: #2d95b2;
+    border-radius: 5px;
+    border: 1px solid #5adaff;
+}
+
+#comments_table > tbody > tr > td > button:hover, #comments_table > tbody > tr > td > div > button:hover {
+    background-color: #105365;
 }

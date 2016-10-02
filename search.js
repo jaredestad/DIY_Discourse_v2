@@ -117,11 +117,12 @@ $(".search-area").on("change", ".select-attribute", function() {
     var value = $(this).val();
     var $div = $(this).next("div");
     //console.log(value);
-    var buttons = "<div class=\"button-wrap\">" +
+    /*var buttons = "<div class=\"button-wrap\">" +
     "<button type=\"button\" class=\"circle-small add_input\">+</button>" +
     "<button type=\"button\" class=\"circle-small remove_input\">-</button>"
     "</div>"; 
-
+    */
+    var buttons = "";
 
 if(value == "keyword" || value == "tag") {
     $div.html("<p>is" +
@@ -129,9 +130,9 @@ if(value == "keyword" || value == "tag") {
         "<option value=\"equal\">equal</option>" +
         "<option value=\"not equal\">not equal</option>" +
         "</select>" +
-        " to" + 
+        "to" + 
         "<div>" +
-        "<input type=\"text\" placeholder=\"Word\" name=\"k0\" />" +
+        "<input type=\"text\" name=\"k0\" />" +
         "</div>" +
         buttons +
         "</p>");
@@ -143,7 +144,7 @@ else if(value == "substring") {
             "<option value=\"not like\">not like</option>" +
             "</select>" +
             "<div>" +
-            "<input type=\"text\" placeholder=\"Word\" name=\"k0\" /></p>" +
+            "<input type=\"text\" name=\"k0\" /></p>" +
             "</div>" +
             buttons +
             "</p>");
@@ -157,7 +158,7 @@ else if(value == "id" || value == "author" || value == "subreddit" || value == "
             "<option value=\"not like\">not like</option>" +
             "</select>" +
             "<div>" +
-            "<input type=\"text\" placeholder=\"Word\" name=\"k0\" />" +
+            "<input type=\"text\" name=\"k0\" />" +
             "</div>" +
             buttons +
             "</p>");
@@ -171,7 +172,7 @@ else if(value == "ups" || value == "downs" || value == "score" || value == "word
             "<option value=\"less than\">less than</option>" +
             "</select>" +
             "<div>" +
-            "<input type=\"text\" placeholder=\"Word\" name=\"k0\" />" +
+            "<input type=\"text\" name=\"k0\" />" +
             "</div>" +
             "</p>");
 
@@ -427,6 +428,11 @@ $("tbody").on("click", "p > span", function() {
                    }
         });
     });
+
+//referenced http://stackoverflow.com/questions/14977864/fixed-header-table-with-horizontal-scrollbar-and-vertical-scrollbar-on
+$("#table-area-wrapper").scroll(function() {
+   $("#header-area-wrapper").offset({ left: -1*this.scrollLeft }); 
+});
 
 });
 

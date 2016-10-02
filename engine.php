@@ -203,7 +203,7 @@ while(($row = mysql_fetch_assoc($result)) != null)
         "</td>" .
         "<td class=\"body_column\">" . $row["body"] .
         "<br>" .
-        "<a href=\"http://www.reddit.com/comments/" . $link . "/xyzzy/" . $row["id"] . "\">permalink</a>"; 
+        "<a href=\"http://www.reddit.com/comments/" . $link . "/xyzzy/" . $row["id"] . "\">Link to Reddit</a>"; 
 
     $tags = explode(";", $row["tags"]);
     for($z = 0; $z < count($tags); $z++)
