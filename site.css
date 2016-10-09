@@ -502,11 +502,15 @@ font-family: "Baloo Tamma", cursive;
     margin-left: 40px;
 }
 
-#loader > span{
+#loader > span, #loader2 > td > span{
     font-size: 30px;
     font-weight: bold;
     font-family: "Baloo Tamma", cursive;
     vertical-align: top;
+}
+
+#loader2 > td {
+    text-align: center;
 }
 
 #arrow-box2 {

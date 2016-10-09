@@ -118,88 +118,88 @@ $(".search-area").on("change", ".select-attribute", function() {
     var $div = $(this).next("div");
     //console.log(value);
     /*var buttons = "<div class=\"button-wrap\">" +
-    "<button type=\"button\" class=\"circle-small add_input\">+</button>" +
-    "<button type=\"button\" class=\"circle-small remove_input\">-</button>"
-    "</div>"; 
-    */
+      "<button type=\"button\" class=\"circle-small add_input\">+</button>" +
+      "<button type=\"button\" class=\"circle-small remove_input\">-</button>"
+      "</div>"; 
+      */
     var buttons = "";
 
-if(value == "keyword" || value == "tag") {
-    $div.html("<p>is" +
-        "<select name=\"relation\">" +
-        "<option value=\"equal\">equal</option>" +
-        "<option value=\"not equal\">not equal</option>" +
-        "</select>" +
-        "to" + 
-        "<div>" +
-        "<input type=\"text\" name=\"k0\" />" +
-        "</div>" +
-        buttons +
-        "</p>");
-}
-else if(value == "substring") {
-    $div.html("<p>is" +
+    if(value == "keyword" || value == "tag") {
+        $div.html("<p>is" +
             "<select name=\"relation\">" +
-            "<option value=\"like\">like</option>" +
-            "<option value=\"not like\">not like</option>" +
+            "<option value=\"equal\">equal</option>" +
+            "<option value=\"not equal\">not equal</option>" +
             "</select>" +
-            "<div>" +
-            "<input type=\"text\" name=\"k0\" /></p>" +
-            "</div>" +
-            buttons +
-            "</p>");
-}
-else if(value == "id" || value == "author" || value == "subreddit" || value == "body" || value == "author_flair_text" || value == "author_flair_css_class" || value == "subreddit_id" || value == "parent_id" || value == "link_id" || value == "name" || value == "retrieved_on" || value == "created_utc") {
-    $div.html("<p>is" +
-            "<select name=\"relation\">" +
-            "<option value=\"equal\">equal to</option>" +
-            "<option value=\"not equal\">not equal to</option>" +
-            "<option value=\"like\">like</option>" +
-            "<option value=\"not like\">not like</option>" +
-            "</select>" +
+            "to" + 
             "<div>" +
             "<input type=\"text\" name=\"k0\" />" +
             "</div>" +
             buttons +
             "</p>");
+    }
+    else if(value == "substring") {
+        $div.html("<p>is" +
+                "<select name=\"relation\">" +
+                "<option value=\"like\">like</option>" +
+                "<option value=\"not like\">not like</option>" +
+                "</select>" +
+                "<div>" +
+                "<input type=\"text\" name=\"k0\" /></p>" +
+                "</div>" +
+                buttons +
+                "</p>");
+    }
+    else if(value == "id" || value == "author" || value == "subreddit" || value == "body" || value == "author_flair_text" || value == "author_flair_css_class" || value == "subreddit_id" || value == "parent_id" || value == "link_id" || value == "name" || value == "retrieved_on" || value == "created_utc") {
+        $div.html("<p>is" +
+                "<select name=\"relation\">" +
+                "<option value=\"equal\">equal to</option>" +
+                "<option value=\"not equal\">not equal to</option>" +
+                "<option value=\"like\">like</option>" +
+                "<option value=\"not like\">not like</option>" +
+                "</select>" +
+                "<div>" +
+                "<input type=\"text\" name=\"k0\" />" +
+                "</div>" +
+                buttons +
+                "</p>");
 
-}
-else if(value == "ups" || value == "downs" || value == "score" || value == "word_count" || value == "long_word_count" || value == "sentence_count" || value == "lix" || value == "row_id" || value == "gilded" || value == "controversiality"){
-    $div.html("<p>is" +
-            "<select name=\"relation\">" +
-            "<option value=\"equal\">equal to</option>" +
-            "<option value=\"greater than\">greater than</option>" +
-            "<option value=\"less than\">less than</option>" +
-            "</select>" +
-            "<div>" +
-            "<input type=\"text\" name=\"k0\" />" +
-            "</div>" +
-            "</p>");
+    }
+    else if(value == "ups" || value == "downs" || value == "score" || value == "word_count" || value == "long_word_count" || value == "sentence_count" || value == "lix" || value == "row_id" || value == "gilded" || value == "controversiality"){
+        $div.html("<p>is" +
+                "<select name=\"relation\">" +
+                "<option value=\"equal\">equal to</option>" +
+                "<option value=\"greater than\">greater than</option>" +
+                "<option value=\"less than\">less than</option>" +
+                "</select>" +
+                "<div>" +
+                "<input type=\"text\" name=\"k0\" />" +
+                "</div>" +
+                "</p>");
 
-}
-else if(value == "edited" || value == "archived" || value == "score_hidden") {
-    $div.html("<p>is" +
-            "<select name=\"relation\">" +
-            "<option value=\"either\">either</option>" +
-            "<option value=\"true\">true</option>" +
-            "<option value=\"false\">false</option>" +
-            "</select>" +
-            "<div>" +
-            "</div>" +
-            "</p>");
+    }
+    else if(value == "edited" || value == "archived" || value == "score_hidden") {
+        $div.html("<p>is" +
+                "<select name=\"relation\">" +
+                "<option value=\"either\">either</option>" +
+                "<option value=\"true\">true</option>" +
+                "<option value=\"false\">false</option>" +
+                "</select>" +
+                "<div>" +
+                "</div>" +
+                "</p>");
 
-}
-else if(value == "distinguished") {
-    $div.html("<p>is" +
-            "<select name=\"relation\">" +
-            "<option value=\"either\">either</option>" +
-            "<option value=\"null\">null</option>" +
-            "<option value=\"not null\">not null</option>" +
-            "</select>" +
-            "<div>" +
-            "</div>" +
-            "</p>");
-}
+    }
+    else if(value == "distinguished") {
+        $div.html("<p>is" +
+                "<select name=\"relation\">" +
+                "<option value=\"either\">either</option>" +
+                "<option value=\"null\">null</option>" +
+                "<option value=\"not null\">not null</option>" +
+                "</select>" +
+                "<div>" +
+                "</div>" +
+                "</p>");
+    }
 
 });  
 
@@ -220,11 +220,14 @@ $(".search-area").on("click", ".remove_input", function() {
 $("#reset").click(function() {
     $(".search-area").html(starterString);
     counter = 0;
+    numloaded = 0;
+    array.splice(0, array.length);
 });
-
+var perLoad = 1000;
+var numloaded = 0;
+var array = new Array();
 $("#search").click(function() {
 
-    var array = new Array();
     $("form").each(function() {
         if( $(this).children(".select-attribute").val() != null) {
             var serializedString = $(this).serializeArray();
@@ -236,32 +239,39 @@ $("#search").click(function() {
     $("#loader").show();
     $("#scroll-bottom").css("bottom", "10px");
 
+
+    $("#display_opt").show();//remove if issue is resolved
+    
     //This Timeout function is necessary otherwise the #scroll-bottom animation/transition is not smooth
     setTimeout( function() { 
         $.ajax({
             type: "POST",
             url: "./engine.php",
             dataType: "text",
-            data: { "array": array},
+            data: { "array": array, "limit": numloaded},
 
             success: function(results) {
                 $("#comments_table tbody").html(results);
-                console.log(results);
+                //console.log(results);
 
+                //RangeError: Maximum call stack size exceeded. 2620 
+                /*
                 if( $("#r1").prop("checked")==true ){
+                    console.log("here");
                     $(".regular").hide();
                 }
                 else {
                     $(".compressed").hide();
-                }
-                checkSelection();
-                //need .adder to hide here when info loads
-                $(".adder").hide();
-                $(".remove_tag").hide();
-                $("#loader").hide();
-                $("#arrow-box").show();
-                $("#scroll-bottom").addClass("bouncing-effect");
-                $("#comment_count").text($("#comments_table > tbody > tr").last().find(".row_id_column").text());
+                }*/
+        checkSelection();
+        //need .adder to hide here when info loads
+        $(".adder").hide();
+        $(".remove_tag").hide();
+        $("#loader").hide();
+        $("#arrow-box").show();
+        $("#scroll-bottom").addClass("bouncing-effect");
+        $("#comment_count").text($("#comments_table > tbody > tr").last().find(".row_id_column").text());
+        numloaded += perLoad;
 
             },
             complete: function() {
@@ -292,7 +302,7 @@ $(window).scroll(function() {
     var offsetSA = $("#search-area").offset().top + $("#search-area").height();
     var offsetBA = $("#button-area").offset().top + $("#button-area").height();
 
-    console.log("SA: " + offsetSA +", BA: " + offsetBA);
+    //console.log("SA: " + offsetSA +", BA: " + offsetBA);
 
     if(offsetBA > offsetSA){
         $("#button-area").css("visibility", "hidden");
@@ -329,6 +339,7 @@ $(".dropdown input[type='checkbox']").click(function() {
     console.log(title);
 });
 
+/*
 $("input[type='radio']").change(function() {
     if($(this).val() == "compressed" && $(this).prop("checked", true)){   
         $(".compressed").show();
@@ -342,7 +353,7 @@ $("input[type='radio']").change(function() {
         $(".compressed").hide();
     }
 });
-
+*/
 
 $("#scroll-bottom").click(function() {
     $("#table-area").show();
@@ -370,68 +381,119 @@ $(document).bind("click", function(e) {
 }); 
 
 $("tbody").on("click", ".edit_tag", function () {
-       $(".edit_tag").hide();
-        $(this).next(".adder").show();
-        $(this).parent().find("p > span.remove_tag").show();
-        //$(".edit_tag").attr("disabled", true);
+    $(".edit_tag").hide();
+    $(this).next(".adder").show();
+    $(this).parent().find("p > span.remove_tag").show();
+    //$(".edit_tag").attr("disabled", true);
 });
 
 $("tbody").on("click", ".done_tag", function() {
-        $(".edit_tag").show();
-        $(".remove_tag").hide();
-        $(this).parent().hide();
+    $(".edit_tag").show();
+    $(".remove_tag").hide();
+    $(this).parent().hide();
 });
 
 $("tbody").on("click", ".add_tag", function() {
-        var $this = $(this);
-        var $tag = $(this).next("input").val(); 
-        $(this).next("input").val("");
-        var $id = $(this).next("input").attr("id");
-        var $html = "<p>" + $tag + "<span class='remove_tag'>&#10006</span></p>";
-        $.ajax({
-            type: "POST",
-            url: "./add_tag.php",
-            dataType: "text",
-            data: { "id": $id, "tag": $tag},
+    var $this = $(this);
+    var $tag = $(this).next("input").val(); 
+    $(this).next("input").val("");
+    var $id = $(this).next("input").attr("id");
+    var $html = "<p>" + $tag + "<span class='remove_tag'>&#10006</span></p>";
+    $.ajax({
+        type: "POST",
+        url: "./add_tag.php",
+        dataType: "text",
+        data: { "id": $id, "tag": $tag},
 
-            success: function(results) {
-                //should have wait/loading function
-                $this.parent().prev("button").before($html);
-            },
-            complete: function() {
-                      },
-            error: function() {
-                       alert(results);
-                   }
-        });
+        success: function(results) {
+            //should have wait/loading function
+            $this.parent().prev("button").before($html);
+        },
+        complete: function() {
+                  },
+        error: function() {
+                   alert(results);
+               }
+    });
 });
 
 $("tbody").on("click", "p > span", function() {
     var $this = $(this);
     var $id = $(this).parent().nextAll("div").eq(0).find("input").attr("id");
     var $tag = $(this).parent().contents().filter(function() {
-      return this.nodeType == 3;   
+        return this.nodeType == 3;   
     }).text(); 
-        $.ajax({
-            type: "POST",
-            url: "./remove_tag.php",
-            dataType: "text",
-            data: { "id": $id, "tag": $tag},
+    $.ajax({
+        type: "POST",
+        url: "./remove_tag.php",
+        dataType: "text",
+        data: { "id": $id, "tag": $tag},
 
-            success: function(results) {
-                $this.parent().remove();
-            },
-            complete: function() {
-                      },
-            error: function() {
-                       alert(results);
-                   }
-        });
+        success: function(results) {
+            $this.parent().remove();
+        },
+        complete: function() {
+                  },
+        error: function() {
+                   alert(results);
+               }
     });
+});
+
+var okToLoad = true;
+$("#table-area-wrapper").on("scroll", function() {
+    var offsetTop = $(this).scrollTop();
+    var tableHeight = $("tbody").height();
+    var percent = offsetTop/tableHeight*100;
+    var loadingMessage = "<tr style=\"width: " + $("tbody").width() + "px; height: 100px;\" id=\"loader2\">" +
+    "<td style=\"width: 100%; height: 100px;\" colspan=\"42\">" +
+    "<i class=\"fa fa-cog fa-spin fa-3x fa-fw\" aria-hidden=\"true\"></i>" +
+    "<span>Loading</span>" +
+    "</td>" +
+    "</tr>";
+    //console.log(offsetTop);
+    //console.log("Difference: " + percent);
+    //console.log(okToLoad);
+    if(percent > 90 && okToLoad == true)
+{
+    okToLoad = false;
+    //$("#comments_table tbody").append(loadingMessage);
+
+$.ajax({
+    type: "POST",
+    url: "./engine.php",
+    dataType: "text",
+    data: { "array": array, "limit": numloaded},
+
+    success: function(results) {
+        $("#comments_table tbody").append(results);
+        //console.log(results);
+
+        /*
+        if( $("#r1").prop("checked")==true ){
+            $(".regular").hide();
+        }
+        else {
+            $(".compressed").hide();
+        }*/
+checkSelection();
+$(".adder").hide();
+//need .adder to hide here when info loads
+$("#comment_count").text($("#comments_table > tbody > tr").last().find(".row_id_column").text());
+    setTimeout( function() { okToLoad = true}, 3000); 
+numloaded += perLoad;
+    },
+    complete: function() {
+              },
+    error: function() {
+           }
+});
+}
+});
 
 //referenced http://stackoverflow.com/questions/14977864/fixed-header-table-with-horizontal-scrollbar-and-vertical-scrollbar-on
 $("#table-area-wrapper").scroll(function() {
-   $("#header-area-wrapper").offset({ left: -1*this.scrollLeft }); 
+    $("#header-area-wrapper").offset({ left: -1*this.scrollLeft }); 
 });
 
 });

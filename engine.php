@@ -10,7 +10,7 @@ if(! $conn)
     die('Could not connect' . mysql_error());
 }   
 
-$counter = $_POST["counter"];
+$limit = $_POST["limit"];
 $attributes_array = $_POST["array"];
 
 $query = "SELECT * FROM cinfo WHERE";
@@ -168,8 +168,17 @@ for($x = 0; $x < count($attributes_array);$x++)
     }
     $query .= $temp;
 }
-$query .= ") LIMIT 1000;";
+    if($limit == 0)
+    {
+        
+        $query .= ") LIMIT 1000 OFFSET ". $limit .";";
+    }
+    else
+    {
+       $query .= ") LIMIT ". $limit ." OFFSET ". $limit .";";
+    }
 
+    //echo $query;
 mysql_select_db('reddit');
 mysql_set_charset('utf8mb4', $conn);
 mysql_query("SET NAMES utf8mb4");
@@ -221,7 +230,8 @@ while(($row = mysql_fetch_assoc($result)) != null)
         "<label>Subreddit ID: </label>". $row["subreddit_id"] ."</p>".
         "<label>Parent ID: </label>". $row["parent_id"] ."</p>".
         "<label>Link ID: </label>". $row["link_id"] ."</p>".
-        "<label>Name: </label>". $row["name"] ."</p>". 
+        "<label>Name: </label>". $row["name"] ."</p>".
+        "<label>Number: </label>". ($num+$limit) ."</p>".
         "</td>";
     
     $single_row .= "<td class=\"subreddit_id_column regular\">" . $row["subreddit_id"] . "</td>" .
@@ -241,7 +251,7 @@ while(($row = mysql_fetch_assoc($result)) != null)
         "<td class=\"archived_column regular\">" . $row["archived"] . "</td>" .
         "<td class=\"distinguished_column regular\">" . $row["distinguished"] . "</td>" .
         "<td class=\"score_hidden_column regular\">" . $row["score_hidden"] . "</td>" .
-        "<td class=\"row_id_column regular\">" . $num . "</td>" .
+        "<td class=\"row_id_column regular\">" . ($num+$limit) . "</td>" .
         "<td class=\"wordcount_column regular\">" . $row["wordcount"] . "</td>" .
         "<td class=\"lwordcount_column regular\">" . $row["lwordcount"] . "</td>" .
         "<td class=\"sentcount_column regular\">" . $row["sentcount"] . "</td>" .
